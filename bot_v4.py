@@ -388,6 +388,9 @@ def analizar_mercado():
     )
     return {
         "momento": momento,
+        "ultima_vela": ultima_vela,
+        "maximo_ultima_vela": float(ultima["High"]),
+        "minimo_ultima_vela": float(ultima["Low"]),
         "estado": estado,
         "precio": precio,
         "ema20": ema20,
