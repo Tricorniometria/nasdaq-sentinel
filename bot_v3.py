@@ -31,7 +31,8 @@ def enviar_telegram(mensaje):
         url,
         data={"chat_id": chat_id, "text": mensaje},
         timeout=20,
-    )
+    )    if not respuesta.ok:
+        print("ERROR EXACTO DE TELEGRAM:", respuesta.status_code, respuesta.text)
     respuesta.raise_for_status()
 
 
