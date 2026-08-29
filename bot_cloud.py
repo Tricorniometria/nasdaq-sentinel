@@ -1,9 +1,10 @@
 import csv
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+import requests
 from dotenv import load_dotenv
 
 from bot_v4 import (
@@ -11,6 +12,7 @@ from bot_v4 import (
     ZONA_NUEVA_YORK,
     analizar_mercado,
     enviar_telegram,
+    formatear_fvg,
     formatear_noticias_macro,
     obtener_noticias_macro,
     sesion_nueva_york_abierta,
@@ -20,6 +22,16 @@ ARCHIVO_ESTADO = Path("estado_cloud.json")
 ESPERA_MINIMA_ALERTAS = 900
 CADUCIDAD_ENTRADA_MINUTOS = 90
 MAXIMOS_MACRO_VISTOS = 100
+ANTIGUEDAD_MAXIMA_COMANDO_SEGUNDOS = 1800
+
+COMANDOS_TELEGRAM = [
+    {"command": "ayuda", "description": "Ver comandos disponibles"},
+    {"command": "estado", "description": "Estado del bot y de la sesion"},
+    {"command": "analisis", "description": "Analisis tecnico actualizado"},
+    {"command": "niveles", "description": "Balance, rangos y FVG activos"},
+    {"command": "macro", "description": "Ultimas noticias macro oficiales"},
+    {"command": "ultima", "description": "Ultima senal u operacion simulada"},
+]
 
 CAMPOS_RESULTADO = [
     "fecha_hora_nueva_york", "estado", "precio", "entrada_baja",
@@ -47,6 +59,8 @@ def estado_inicial():
         "ultimo_error_notificado": None,
         "operacion_abierta": None,
         "resumen_sesion": resumen_vacio(),
+        "ultimo_update_telegram": 0,
+        "menu_telegram_configurado": False,
     }
 
 
@@ -77,6 +91,230 @@ def tiempo_desde_ultimo_envio(estado, ahora):
         return (ahora - datetime.fromisoformat(texto)).total_seconds()
     except (ValueError, TypeError):
         return None
+
+
+def configurar_menu_telegram(estado):
+    if estado.get("menu_telegram_configurado"):
+        return False
+
+    token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    respuesta = requests.post(
+        f"https://api.telegram.org/bot{token}/setMyCommands",
+        json={"commands": COMANDOS_TELEGRAM},
+        timeout=20,
+    )
+    respuesta.raise_for_status()
+    estado["menu_telegram_configurado"] = True
+    print("Menu de comandos de Telegram configurado.")
+    return True
+
+
+def obtener_actualizaciones_telegram(estado):
+    token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    ultimo_update = int(estado.get("ultimo_update_telegram") or 0)
+    parametros = {
+        "timeout": 0,
+        "limit": 100,
+        "allowed_updates": json.dumps(["message"]),
+    }
+    if ultimo_update:
+        parametros["offset"] = ultimo_update + 1
+
+    respuesta = requests.get(
+        f"https://api.telegram.org/bot{token}/getUpdates",
+        params=parametros,
+        timeout=20,
+    )
+    respuesta.raise_for_status()
+    datos = respuesta.json()
+    if not datos.get("ok"):
+        raise RuntimeError(datos.get("description", "Telegram no devolvio OK"))
+    return datos.get("result", [])
+
+
+def _fecha_estado(texto):
+    if not texto:
+        return "No disponible"
+    try:
+        fecha = datetime.fromisoformat(texto)
+        if fecha.tzinfo is None:
+            fecha = fecha.replace(tzinfo=ZONA_NUEVA_YORK)
+        return fecha.astimezone(ZONA_NUEVA_YORK).strftime("%d/%m/%Y %H:%M NY")
+    except (TypeError, ValueError):
+        return str(texto)
+
+
+def mensaje_estado_bot(estado, ahora):
+    sesion = "ABIERTA" if sesion_nueva_york_abierta(ahora) else "CERRADA"
+    operacion = estado.get("operacion_abierta")
+    if operacion:
+        texto_operacion = (
+            f"{operacion.get('estado_operacion', 'EN SEGUIMIENTO')} "
+            f"({operacion.get('direccion', 'SIN DIRECCION')})"
+        )
+    else:
+        texto_operacion = "Ninguna"
+
+    return (
+        "🤖 ESTADO DE NASDAQ SENTINEL\n\n"
+        "Automatizacion: ACTIVA\n"
+        f"Sesion de Nueva York: {sesion}\n"
+        f"Hora Nueva York: {ahora:%d/%m/%Y %H:%M}\n"
+        f"Ultimo estado tecnico: "
+        f"{estado.get('ultimo_estado_notificado') or 'No disponible'}\n"
+        f"Ultimo aviso: {_fecha_estado(estado.get('ultimo_envio'))}\n"
+        f"Operacion simulada: {texto_operacion}\n\n"
+        "Modo educativo y simulado. No ejecuta ordenes."
+    )
+
+
+def mensaje_niveles(resultado):
+    niveles = resultado["niveles"]
+    plan = resultado.get("plan")
+    if plan:
+        texto_plan = (
+            f"Plan {plan['direccion']}: "
+            f"{plan['entrada_baja']:.2f} - {plan['entrada_alta']:.2f}\n"
+            f"Stop: {plan['stop']:.2f}\n"
+            f"Objetivos: {plan['objetivo_1']:.2f} / {plan['objetivo_2']:.2f}"
+        )
+    else:
+        texto_plan = "Sin plan de entrada: faltan confirmaciones."
+
+    return (
+        "📐 NIVELES NASDAQ — SESION NY\n\n"
+        f"Precio: {resultado['precio']:.2f}\n"
+        f"Minimo / maximo: {niveles['minimo_sesion']:.2f} / "
+        f"{niveles['maximo_sesion']:.2f}\n"
+        f"Balance 25%-75%: {niveles['zona_descuento']:.2f} - "
+        f"{niveles['zona_premium']:.2f}\n"
+        f"Equilibrio: {niveles['equilibrio']:.2f}\n"
+        f"Rango de apertura: {niveles['minimo_apertura']:.2f} - "
+        f"{niveles['maximo_apertura']:.2f}\n\n"
+        f"{formatear_fvg('FVG alcista', resultado.get('fvg_alcista'))}\n"
+        f"{formatear_fvg('FVG bajista', resultado.get('fvg_bajista'))}\n\n"
+        f"{texto_plan}\n\n"
+        "Lectura simulada; confirmar siempre en el grafico."
+    )
+
+
+def mensaje_ultima_senal(estado):
+    operacion = estado.get("operacion_abierta")
+    if operacion:
+        return (
+            "🧾 OPERACION SIMULADA EN SEGUIMIENTO\n\n"
+            f"ID: {operacion.get('id', 'No disponible')}\n"
+            f"Estado: {operacion.get('estado_operacion', 'No disponible')}\n"
+            f"Direccion: {operacion.get('direccion', 'No disponible')}\n"
+            f"Zona: {operacion['entrada_baja']:.2f} - "
+            f"{operacion['entrada_alta']:.2f}\n"
+            f"Entrada de control: {operacion['entrada']:.2f}\n"
+            f"Stop actual: {operacion['stop_actual']:.2f}\n"
+            f"Objetivos: {operacion['objetivo_1']:.2f} / "
+            f"{operacion['objetivo_2']:.2f}\n"
+            f"TP1 alcanzado: {'SI' if operacion.get('tp1_alcanzado') else 'NO'}"
+        )
+
+    return (
+        "🧾 ULTIMA INFORMACION GUARDADA\n\n"
+        f"Estado tecnico: "
+        f"{estado.get('ultimo_estado_notificado') or 'No disponible'}\n"
+        f"Ultimo aviso: {_fecha_estado(estado.get('ultimo_envio'))}\n"
+        "Operacion simulada abierta: ninguna."
+    )
+
+
+def mensaje_ayuda():
+    return (
+        "🧭 NASDAQ SENTINEL — CONSULTAS\n\n"
+        "/estado — Estado del bot y de la sesion\n"
+        "/analisis — Analisis tecnico actualizado\n"
+        "/niveles — Balance, rangos y FVG\n"
+        "/macro — Noticias macro oficiales\n"
+        "/ultima — Ultima senal u operacion simulada\n"
+        "/ayuda — Mostrar este menu\n\n"
+        "Las consultas se atienden en la siguiente revision programada "
+        "y pueden tardar varios minutos.\n\n"
+        "⚠️ Simulacion educativa. No ejecuta operaciones."
+    )
+
+
+def responder_comando(comando, estado, ahora, cache):
+    if comando in {"/start", "/ayuda"}:
+        return mensaje_ayuda()
+    if comando == "/estado":
+        return mensaje_estado_bot(estado, ahora)
+    if comando == "/ultima":
+        return mensaje_ultima_senal(estado)
+    if comando == "/macro":
+        noticias = obtener_noticias_macro(maximas=4)
+        return formatear_noticias_macro(noticias, "📰 CONSULTA MACRO OFICIAL")
+    if comando in {"/analisis", "/niveles"}:
+        if not sesion_nueva_york_abierta(ahora):
+            return (
+                "🌙 SESION DE NUEVA YORK CERRADA\n\n"
+                "El analisis intradia y los niveles de la sesion solo se "
+                "calculan entre las 09:30 y las 16:00 de Nueva York.\n\n"
+                "Puedes usar /estado, /macro, /ultima o /ayuda."
+            )
+        if "resultado" not in cache:
+            cache["resultado"] = analizar_mercado()
+        if comando == "/analisis":
+            return cache["resultado"]["mensaje"]
+        return mensaje_niveles(cache["resultado"])
+    return mensaje_ayuda()
+
+
+def procesar_comandos_telegram(estado, ahora):
+    cambio = False
+    try:
+        cambio = configurar_menu_telegram(estado) or cambio
+    except requests.RequestException as error:
+        print(f"No se pudo configurar el menu de Telegram: {error}")
+
+    try:
+        actualizaciones = obtener_actualizaciones_telegram(estado)
+    except (requests.RequestException, RuntimeError, ValueError) as error:
+        print(f"No se pudieron consultar comandos de Telegram: {error}")
+        return cambio
+
+    chat_autorizado = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    ahora_utc = ahora.astimezone(timezone.utc)
+    cache = {}
+    ultimo_update = int(estado.get("ultimo_update_telegram") or 0)
+
+    for actualizacion in actualizaciones:
+        identificador = int(actualizacion.get("update_id", 0))
+        ultimo_update = max(ultimo_update, identificador)
+        mensaje = actualizacion.get("message") or {}
+        texto = str(mensaje.get("text") or "").strip()
+        chat_id = str((mensaje.get("chat") or {}).get("id", ""))
+        if chat_id != chat_autorizado or not texto.startswith("/"):
+            continue
+
+        fecha_unix = mensaje.get("date")
+        if fecha_unix:
+            fecha_mensaje = datetime.fromtimestamp(fecha_unix, tz=timezone.utc)
+            antiguedad = (ahora_utc - fecha_mensaje).total_seconds()
+            if antiguedad > ANTIGUEDAD_MAXIMA_COMANDO_SEGUNDOS:
+                continue
+
+        comando = texto.split()[0].split("@")[0].lower()
+        try:
+            enviar_telegram(responder_comando(comando, estado, ahora, cache))
+            print(f"Comando de Telegram atendido: {comando}")
+        except Exception as error:
+            print(f"Error atendiendo {comando}: {type(error).__name__}: {error}")
+            enviar_telegram(
+                "⚠️ CONSULTA NO DISPONIBLE\n\n"
+                "El bot seguira funcionando y volvera a intentarlo.\n"
+                f"Detalle: {type(error).__name__}: {str(error)[:160]}"
+            )
+
+    if ultimo_update != int(estado.get("ultimo_update_telegram") or 0):
+        estado["ultimo_update_telegram"] = ultimo_update
+        cambio = True
+    return cambio
 
 
 def noticias_macro_nuevas(estado, ahora):
@@ -338,6 +576,11 @@ def mensaje_resumen(estado):
 
 
 def ejecutar_prueba_manual():
+    estado = cargar_estado()
+    ahora = datetime.now(ZONA_NUEVA_YORK)
+    if procesar_comandos_telegram(estado, ahora):
+        guardar_estado(estado)
+
     enviar_telegram(
         "🧪 NASDAQ SENTINEL — SEGUIMIENTO ACTIVO\n\n"
         "Conexion verificada. El sistema de una sola operacion simulada, "
@@ -372,6 +615,9 @@ def notificar_error_una_vez(estado, error):
 def ejecutar_programacion():
     ahora = datetime.now(ZONA_NUEVA_YORK)
     estado = cargar_estado()
+    if procesar_comandos_telegram(estado, ahora):
+        guardar_estado(estado)
+
     abierta = sesion_nueva_york_abierta(ahora)
     if not abierta:
         if estado.get("sesion_abierta"):
