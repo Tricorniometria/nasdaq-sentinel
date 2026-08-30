@@ -23,6 +23,7 @@ ESPERA_MINIMA_ALERTAS = 900
 CADUCIDAD_ENTRADA_MINUTOS = 90
 MAXIMOS_MACRO_VISTOS = 100
 ANTIGUEDAD_MAXIMA_COMANDO_SEGUNDOS = 1800
+VERSION_MENU_TELEGRAM = 3
 
 COMANDOS_TELEGRAM = [
     {"command": "ayuda", "description": "Ver comandos disponibles"},
@@ -31,6 +32,7 @@ COMANDOS_TELEGRAM = [
     {"command": "niveles", "description": "Balance, rangos y FVG activos"},
     {"command": "macro", "description": "Ultimas noticias macro oficiales"},
     {"command": "ultima", "description": "Ultima senal u operacion simulada"},
+    {"command": "estadisticas", "description": "Rendimiento de la simulacion"},
 ]
 
 CAMPOS_RESULTADO = [
@@ -61,6 +63,7 @@ def estado_inicial():
         "resumen_sesion": resumen_vacio(),
         "ultimo_update_telegram": 0,
         "menu_telegram_configurado": False,
+        "version_menu_telegram": 0,
     }
 
 
@@ -94,7 +97,8 @@ def tiempo_desde_ultimo_envio(estado, ahora):
 
 
 def configurar_menu_telegram(estado):
-    if estado.get("menu_telegram_configurado"):
+    version_actual = int(estado.get("version_menu_telegram") or 0)
+    if version_actual >= VERSION_MENU_TELEGRAM:
         return False
 
     token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
@@ -105,6 +109,7 @@ def configurar_menu_telegram(estado):
     )
     respuesta.raise_for_status()
     estado["menu_telegram_configurado"] = True
+    estado["version_menu_telegram"] = VERSION_MENU_TELEGRAM
     print("Menu de comandos de Telegram configurado.")
     return True
 
@@ -130,6 +135,32 @@ def obtener_actualizaciones_telegram(estado):
     if not datos.get("ok"):
         raise RuntimeError(datos.get("description", "Telegram no devolvio OK"))
     return datos.get("result", [])
+
+
+def enviar_respuesta_telegram(mensaje, chat_id, mensaje_id=None):
+    """Responde al chat que envio el comando y confirma la entrega."""
+    token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    datos = {"chat_id": chat_id, "text": str(mensaje)}
+    if mensaje_id:
+        datos["reply_parameters"] = {"message_id": mensaje_id}
+
+    respuesta = requests.post(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        json=datos,
+        timeout=20,
+    )
+    if not respuesta.ok:
+        print(
+            "ERROR EN RESPUESTA DE TELEGRAM:",
+            respuesta.status_code,
+            respuesta.text,
+        )
+    respuesta.raise_for_status()
+    resultado = respuesta.json().get("result", {})
+    print(
+        "Respuesta confirmada por Telegram:",
+        f"message_id={resultado.get('message_id')}",
+    )
 
 
 def _fecha_estado(texto):
@@ -224,6 +255,117 @@ def mensaje_ultima_senal(estado):
     )
 
 
+def _numero_seguro(texto, predeterminado=0.0):
+    try:
+        return float(str(texto).strip().replace(",", "."))
+    except (TypeError, ValueError):
+        return predeterminado
+
+
+def cargar_resultados_cerrados():
+    if not ARCHIVO_SENALES.exists():
+        return []
+    try:
+        with ARCHIVO_SENALES.open("r", newline="", encoding="utf-8-sig") as archivo:
+            filas = []
+            for fila in csv.DictReader(archivo):
+                resultado = str(fila.get("resultado_final") or "").strip()
+                if not resultado:
+                    continue
+                filas.append(
+                    {
+                        "fecha": fila.get("fecha_cierre") or fila.get(
+                            "fecha_hora_nueva_york", ""
+                        ),
+                        "direccion": fila.get("direccion") or "-",
+                        "resultado": resultado,
+                        "r": _numero_seguro(fila.get("resultado_r")),
+                    }
+                )
+            return filas
+    except (OSError, csv.Error):
+        return []
+
+
+def mensaje_estadisticas(estado):
+    filas = cargar_resultados_cerrados()
+    if not filas:
+        return (
+            "📊 ESTADISTICAS DE LA SIMULACION\n\n"
+            "Todavia no hay operaciones cerradas suficientes.\n"
+            "El bot empezara a construir el historial durante las proximas "
+            "sesiones de Nueva York.\n\n"
+            "No se inventan resultados ni se cuentan configuraciones abiertas."
+        )
+
+    canceladas = [
+        fila for fila in filas if fila["resultado"].startswith("CANCELADA")
+    ]
+    evaluadas = [
+        fila for fila in filas if not fila["resultado"].startswith("CANCELADA")
+    ]
+    positivas = [fila for fila in evaluadas if fila["r"] > 0]
+    negativas = [fila for fila in evaluadas if fila["r"] < 0]
+    neutrales = [fila for fila in evaluadas if fila["r"] == 0]
+    total_r = sum(fila["r"] for fila in evaluadas)
+    media_r = total_r / len(evaluadas) if evaluadas else 0.0
+    operaciones_decididas = len(positivas) + len(negativas)
+    acierto = (
+        len(positivas) / operaciones_decididas * 100
+        if operaciones_decididas
+        else 0.0
+    )
+    ganancias_r = sum(fila["r"] for fila in positivas)
+    perdidas_r = abs(sum(fila["r"] for fila in negativas))
+    if perdidas_r:
+        factor_beneficio = f"{ganancias_r / perdidas_r:.2f}"
+    elif ganancias_r:
+        factor_beneficio = "Sin perdidas registradas"
+    else:
+        factor_beneficio = "No disponible"
+
+    acumulado = 0.0
+    maximo_acumulado = 0.0
+    maximo_drawdown = 0.0
+    for fila in evaluadas:
+        acumulado += fila["r"]
+        maximo_acumulado = max(maximo_acumulado, acumulado)
+        maximo_drawdown = max(maximo_drawdown, maximo_acumulado - acumulado)
+
+    ultimas = []
+    for fila in filas[-5:]:
+        fecha = _fecha_estado(fila["fecha"])
+        ultimas.append(
+            f"• {fecha} | {fila['direccion']} | "
+            f"{fila['resultado']} | {fila['r']:+.2f}R"
+        )
+
+    operacion_abierta = estado.get("operacion_abierta")
+    texto_abierta = (
+        f"{operacion_abierta.get('direccion')} — "
+        f"{operacion_abierta.get('estado_operacion')}"
+        if operacion_abierta
+        else "Ninguna"
+    )
+
+    return (
+        "📊 ESTADISTICAS DE LA SIMULACION\n\n"
+        f"Operaciones evaluadas: {len(evaluadas)}\n"
+        f"Positivas / negativas / neutras: "
+        f"{len(positivas)} / {len(negativas)} / {len(neutrales)}\n"
+        f"Configuraciones canceladas: {len(canceladas)}\n"
+        f"Porcentaje de acierto: {acierto:.1f}%\n"
+        f"Resultado acumulado: {total_r:+.2f}R\n"
+        f"Media por operacion: {media_r:+.2f}R\n"
+        f"Factor de beneficio: {factor_beneficio}\n"
+        f"Maximo drawdown: {maximo_drawdown:.2f}R\n"
+        f"Operacion abierta: {texto_abierta}\n\n"
+        "ULTIMOS RESULTADOS\n"
+        + "\n".join(ultimas)
+        + "\n\n⚠️ Estadistica educativa basada exclusivamente en la simulacion."
+    )
+
+
 def mensaje_ayuda():
     return (
         "🧭 NASDAQ SENTINEL — CONSULTAS\n\n"
@@ -232,6 +374,7 @@ def mensaje_ayuda():
         "/niveles — Balance, rangos y FVG\n"
         "/macro — Noticias macro oficiales\n"
         "/ultima — Ultima senal u operacion simulada\n"
+        "/estadisticas — Rendimiento acumulado en simulacion\n"
         "/ayuda — Mostrar este menu\n\n"
         "Las consultas se atienden en la siguiente revision programada "
         "y pueden tardar varios minutos.\n\n"
@@ -246,6 +389,8 @@ def responder_comando(comando, estado, ahora, cache):
         return mensaje_estado_bot(estado, ahora)
     if comando == "/ultima":
         return mensaje_ultima_senal(estado)
+    if comando == "/estadisticas":
+        return mensaje_estadisticas(estado)
     if comando == "/macro":
         noticias = obtener_noticias_macro(maximas=4)
         return formatear_noticias_macro(noticias, "📰 CONSULTA MACRO OFICIAL")
@@ -255,7 +400,7 @@ def responder_comando(comando, estado, ahora, cache):
                 "🌙 SESION DE NUEVA YORK CERRADA\n\n"
                 "El analisis intradia y los niveles de la sesion solo se "
                 "calculan entre las 09:30 y las 16:00 de Nueva York.\n\n"
-                "Puedes usar /estado, /macro, /ultima o /ayuda."
+                "Puedes usar /estado, /macro, /ultima, /estadisticas o /ayuda."
             )
         if "resultado" not in cache:
             cache["resultado"] = analizar_mercado()
@@ -289,6 +434,7 @@ def procesar_comandos_telegram(estado, ahora):
         mensaje = actualizacion.get("message") or {}
         texto = str(mensaje.get("text") or "").strip()
         chat_id = str((mensaje.get("chat") or {}).get("id", ""))
+        mensaje_id = mensaje.get("message_id")
         if chat_id != chat_autorizado or not texto.startswith("/"):
             continue
 
@@ -301,14 +447,20 @@ def procesar_comandos_telegram(estado, ahora):
 
         comando = texto.split()[0].split("@")[0].lower()
         try:
-            enviar_telegram(responder_comando(comando, estado, ahora, cache))
+            enviar_respuesta_telegram(
+                responder_comando(comando, estado, ahora, cache),
+                chat_id,
+                mensaje_id,
+            )
             print(f"Comando de Telegram atendido: {comando}")
         except Exception as error:
             print(f"Error atendiendo {comando}: {type(error).__name__}: {error}")
-            enviar_telegram(
+            enviar_respuesta_telegram(
                 "⚠️ CONSULTA NO DISPONIBLE\n\n"
                 "El bot seguira funcionando y volvera a intentarlo.\n"
-                f"Detalle: {type(error).__name__}: {str(error)[:160]}"
+                f"Detalle: {type(error).__name__}: {str(error)[:160]}",
+                chat_id,
+                mensaje_id,
             )
 
     if ultimo_update != int(estado.get("ultimo_update_telegram") or 0):
