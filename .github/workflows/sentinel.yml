@@ -1,10 +1,17 @@
-# NASDAQ SENTINEL WORKFLOW - VERSION ESTADO INSTANTANEO 2026-09-01
+# NASDAQ SENTINEL WORKFLOW - V5 CRON NUEVA YORK 2026-09-01
 name: Nasdaq Sentinel Cloud
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 13-21 * * 1-5"
+    # Apertura: activacion previa a las 09:30 y revisiones cada cinco minutos.
+    - cron: "27-57/5 9 * * 1-5"
+      timezone: "America/New_York"
+    - cron: "2-57/5 10-15 * * 1-5"
+      timezone: "America/New_York"
+    # Cierre: guarda el resumen y deja la sesion en espera.
+    - cron: "2 16 * * 1-5"
+      timezone: "America/New_York"
 
 permissions:
   contents: write
