@@ -1,17 +1,13 @@
-# NASDAQ SENTINEL WORKFLOW - V5 CRON NUEVA YORK 2026-09-01
+# NASDAQ SENTINEL WORKFLOW - V6 AUTOMATIZACION ROBUSTA 2026-09-01
 name: Nasdaq Sentinel Cloud
 
 on:
   workflow_dispatch:
   schedule:
-    # Apertura: activacion previa a las 09:30 y revisiones cada cinco minutos.
-    - cron: "27-57/5 9 * * 1-5"
-      timezone: "America/New_York"
-    - cron: "2-57/5 10-15 * * 1-5"
-      timezone: "America/New_York"
-    # Cierre: guarda el resumen y deja la sesion en espera.
-    - cron: "2 16 * * 1-5"
-      timezone: "America/New_York"
+    # GitHub ejecuta cada cinco minutos de lunes a viernes.
+    # bot_cloud.py decide internamente si la sesion de Nueva York esta abierta.
+    # Se evitan los minutos 00 y 05 para reducir retrasos por saturacion.
+    - cron: "2-57/5 * * * 1-5"
 
 permissions:
   contents: write
