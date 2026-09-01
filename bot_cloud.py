@@ -1,6 +1,6 @@
 import csv
 import json
-# NASDAQ SENTINEL CLOUD - VERSION ESTADO INSTANTANEO V2 2026-09-01
+# NASDAQ SENTINEL CLOUD - V5 PANEL PROFESIONAL 2026-09-01
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -25,11 +25,13 @@ ESPERA_MINIMA_ALERTAS = 900
 CADUCIDAD_ENTRADA_MINUTOS = 90
 MAXIMOS_MACRO_VISTOS = 100
 ANTIGUEDAD_MAXIMA_COMANDO_SEGUNDOS = 1800
-VERSION_MENU_TELEGRAM = 4
+VERSION_MENU_TELEGRAM = 5
 
 COMANDOS_TELEGRAM = [
     {"command": "ayuda", "description": "Ver comandos disponibles"},
     {"command": "estado", "description": "Estado del bot y de la sesion"},
+    {"command": "diagnostico", "description": "Calidad, ejecucion y errores"},
+    {"command": "mercado", "description": "Panel profesional de mercado"},
     {"command": "analisis", "description": "Analisis tecnico actualizado"},
     {"command": "niveles", "description": "Balance, rangos y FVG activos"},
     {"command": "macro", "description": "Ultimas noticias macro oficiales"},
@@ -231,6 +233,84 @@ def mensaje_niveles(resultado):
     )
 
 
+def actualizar_estado_analisis(estado, resultado):
+    calidad = dict(resultado.get("calidad_datos") or {})
+    plan = dict(resultado["plan"]) if resultado.get("plan") else None
+    niveles = dict(resultado.get("niveles") or {})
+    fvg_alcista = resultado.get("fvg_alcista")
+    fvg_bajista = resultado.get("fvg_bajista")
+    snapshot = {
+        "fecha_analisis": resultado["momento"].isoformat(),
+        "ultima_vela": resultado["ultima_vela"].isoformat(),
+        "antiguedad_minutos": resultado.get("antiguedad_minutos"),
+        "calidad_datos": calidad,
+        "estado": resultado["estado"],
+        "precio": resultado["precio"],
+        "ema20": resultado["ema20"],
+        "ema50": resultado["ema50"],
+        "rsi": resultado["rsi"],
+        "atr": resultado["atr"],
+        "puntos_largo": resultado["puntos_largo"],
+        "puntos_corto": resultado["puntos_corto"],
+        "niveles": niveles,
+        "fvg_alcista": list(fvg_alcista) if fvg_alcista else None,
+        "fvg_bajista": list(fvg_bajista) if fvg_bajista else None,
+        "plan": plan,
+    }
+    estado["ultimo_snapshot_mercado"] = snapshot
+    estado["ultimo_analisis_correcto"] = resultado["momento"].isoformat()
+    estado["ultimo_estado_analizado"] = resultado["estado"]
+    estado["ultimo_analisis_mensaje"] = resultado["mensaje"]
+    estado["ultimo_niveles_mensaje"] = mensaje_niveles(resultado)
+    estado["ultimo_error_analisis"] = None
+
+
+def mensaje_diagnostico_guardado(estado, ahora):
+    snapshot = estado.get("ultimo_snapshot_mercado") or {}
+    calidad = snapshot.get("calidad_datos") or {}
+    return (
+        "🩺 DIAGNOSTICO DE NASDAQ SENTINEL\n\n"
+        f"Ultima ejecucion: {_fecha_estado(estado.get('ultima_ejecucion'))}\n"
+        f"Ultimo analisis valido: "
+        f"{_fecha_estado(estado.get('ultimo_analisis_correcto'))}\n"
+        f"Ultima vela: {_fecha_estado(snapshot.get('ultima_vela'))}\n"
+        f"Calidad: {calidad.get('semaforo', '⚪')} "
+        f"{calidad.get('etiqueta', 'Pendiente')}\n"
+        f"Edad al analizar: {snapshot.get('antiguedad_minutos', 'No disponible')} min\n"
+        f"Ultimo error: {estado.get('ultimo_error_analisis') or 'Ninguno'}\n\n"
+        f"Hora Nueva York: {ahora:%d/%m/%Y %H:%M}"
+    )
+
+
+def mensaje_mercado_guardado(estado):
+    snapshot = estado.get("ultimo_snapshot_mercado")
+    if not snapshot:
+        return (
+            "📈 PANEL DE MERCADO\n\n"
+            "Todavia no existe un analisis valido de la sesion actual."
+        )
+    calidad = snapshot.get("calidad_datos") or {}
+    plan = snapshot.get("plan")
+    if not calidad.get("operativa_permitida"):
+        decision = "NO OPERAR — calidad de datos insuficiente."
+    elif plan:
+        decision = f"CONFIGURACION SIMULADA {plan['direccion']}."
+    else:
+        decision = "ESPERAR — faltan confirmaciones."
+    return (
+        "📈 PANEL PROFESIONAL DE MERCADO\n\n"
+        f"Calidad: {calidad.get('semaforo', '⚪')} "
+        f"{calidad.get('etiqueta', 'Pendiente')}\n"
+        f"Ultima vela: {_fecha_estado(snapshot.get('ultima_vela'))}\n"
+        f"Precio NQ: {snapshot.get('precio', 0):.2f}\n"
+        f"Estado: {snapshot.get('estado', 'No disponible')}\n"
+        f"Puntuacion largo/corto: {snapshot.get('puntos_largo', 0)}/"
+        f"{snapshot.get('puntos_corto', 0)}\n\n"
+        f"DECISION: {decision}\n\n"
+        "Simulacion educativa; no ejecuta ordenes."
+    )
+
+
 def mensaje_ultima_senal(estado):
     operacion = estado.get("operacion_abierta")
     if operacion:
@@ -372,6 +452,8 @@ def mensaje_ayuda():
     return (
         "🧭 NASDAQ SENTINEL — CONSULTAS\n\n"
         "/estado — Estado del bot y de la sesion\n"
+        "/diagnostico — Calidad, ultima ejecucion y errores\n"
+        "/mercado — Panel profesional de mercado\n"
         "/analisis — Analisis tecnico actualizado\n"
         "/niveles — Balance, rangos y FVG\n"
         "/macro — Noticias macro oficiales\n"
@@ -389,6 +471,10 @@ def responder_comando(comando, estado, ahora, cache):
         return mensaje_ayuda()
     if comando == "/estado":
         return mensaje_estado_bot(estado, ahora)
+    if comando == "/diagnostico":
+        return mensaje_diagnostico_guardado(estado, ahora)
+    if comando == "/mercado":
+        return mensaje_mercado_guardado(estado)
     if comando == "/ultima":
         return mensaje_ultima_senal(estado)
     if comando == "/estadisticas":
@@ -750,8 +836,7 @@ def ejecutar_prueba_manual():
     )
     try:
         resultado = analizar_mercado()
-        estado["ultimo_analisis_mensaje"] = resultado["mensaje"]
-        estado["ultimo_niveles_mensaje"] = mensaje_niveles(resultado)
+        actualizar_estado_analisis(estado, resultado)
         guardar_estado(estado)
         enviar_telegram("🧪 PRUEBA DE MERCADO\n\n" + resultado["mensaje"])
         print("Analisis de mercado enviado correctamente.")
@@ -827,8 +912,7 @@ def ejecutar_programacion():
             enviar_telegram(formatear_noticias_macro(nuevas, "🚨 NOVEDAD MACRO OFICIAL"))
         marcar_macro_vistas(estado, noticias)
         resultado = analizar_mercado()
-        estado["ultimo_analisis_mensaje"] = resultado["mensaje"]
-        estado["ultimo_niveles_mensaje"] = mensaje_niveles(resultado)
+        actualizar_estado_analisis(estado, resultado)
         operacion = estado.get("operacion_abierta")
         if operacion:
             eventos, cerrada = evaluar_operacion(operacion, resultado, ahora)
