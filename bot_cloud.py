@@ -1,5 +1,6 @@
 import csv
 import json
+# NASDAQ SENTINEL CLOUD - VERSION ESTADO INSTANTANEO 2026-09-01
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -15,6 +16,7 @@ from bot_v4 import (
     formatear_fvg,
     formatear_noticias_macro,
     obtener_noticias_macro,
+    obtener_chat_ids_telegram,
     sesion_nueva_york_abierta,
 )
 
@@ -23,7 +25,7 @@ ESPERA_MINIMA_ALERTAS = 900
 CADUCIDAD_ENTRADA_MINUTOS = 90
 MAXIMOS_MACRO_VISTOS = 100
 ANTIGUEDAD_MAXIMA_COMANDO_SEGUNDOS = 1800
-VERSION_MENU_TELEGRAM = 3
+VERSION_MENU_TELEGRAM = 4
 
 COMANDOS_TELEGRAM = [
     {"command": "ayuda", "description": "Ver comandos disponibles"},
@@ -423,7 +425,7 @@ def procesar_comandos_telegram(estado, ahora):
         print(f"No se pudieron consultar comandos de Telegram: {error}")
         return cambio
 
-    chat_autorizado = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    chats_autorizados = set(obtener_chat_ids_telegram())
     ahora_utc = ahora.astimezone(timezone.utc)
     cache = {}
     ultimo_update = int(estado.get("ultimo_update_telegram") or 0)
@@ -435,7 +437,7 @@ def procesar_comandos_telegram(estado, ahora):
         texto = str(mensaje.get("text") or "").strip()
         chat_id = str((mensaje.get("chat") or {}).get("id", ""))
         mensaje_id = mensaje.get("message_id")
-        if chat_id != chat_autorizado or not texto.startswith("/"):
+        if chat_id not in chats_autorizados or not texto.startswith("/"):
             continue
 
         fecha_unix = mensaje.get("date")
@@ -467,6 +469,12 @@ def procesar_comandos_telegram(estado, ahora):
         estado["ultimo_update_telegram"] = ultimo_update
         cambio = True
     return cambio
+
+
+def webhook_telegram_activo():
+    return os.getenv("TELEGRAM_WEBHOOK_ACTIVO", "").strip().lower() in {
+        "1", "true", "si", "sí", "yes",
+    }
 
 
 def noticias_macro_nuevas(estado, ahora):
@@ -730,7 +738,8 @@ def mensaje_resumen(estado):
 def ejecutar_prueba_manual():
     estado = cargar_estado()
     ahora = datetime.now(ZONA_NUEVA_YORK)
-    if procesar_comandos_telegram(estado, ahora):
+    estado["ultima_ejecucion"] = ahora.isoformat()
+    if not webhook_telegram_activo() and procesar_comandos_telegram(estado, ahora):
         guardar_estado(estado)
 
     enviar_telegram(
@@ -740,6 +749,9 @@ def ejecutar_prueba_manual():
     )
     try:
         resultado = analizar_mercado()
+        estado["ultimo_analisis_mensaje"] = resultado["mensaje"]
+        estado["ultimo_niveles_mensaje"] = mensaje_niveles(resultado)
+        guardar_estado(estado)
         enviar_telegram("🧪 PRUEBA DE MERCADO\n\n" + resultado["mensaje"])
         print("Analisis de mercado enviado correctamente.")
     except Exception as error:
@@ -767,7 +779,8 @@ def notificar_error_una_vez(estado, error):
 def ejecutar_programacion():
     ahora = datetime.now(ZONA_NUEVA_YORK)
     estado = cargar_estado()
-    if procesar_comandos_telegram(estado, ahora):
+    estado["ultima_ejecucion"] = ahora.isoformat()
+    if not webhook_telegram_activo() and procesar_comandos_telegram(estado, ahora):
         guardar_estado(estado)
 
     abierta = sesion_nueva_york_abierta(ahora)
@@ -784,6 +797,7 @@ def ejecutar_programacion():
             print("Cierre y resumen enviados.")
         else:
             print("Fuera de la sesion. No es necesario analizar.")
+        guardar_estado(estado)
         return
 
     fecha_texto = ahora.date().isoformat()
@@ -803,6 +817,8 @@ def ejecutar_programacion():
             enviar_telegram(formatear_noticias_macro(nuevas, "🚨 NOVEDAD MACRO OFICIAL"))
         marcar_macro_vistas(estado, noticias)
         resultado = analizar_mercado()
+        estado["ultimo_analisis_mensaje"] = resultado["mensaje"]
+        estado["ultimo_niveles_mensaje"] = mensaje_niveles(resultado)
         operacion = estado.get("operacion_abierta")
         if operacion:
             eventos, cerrada = evaluar_operacion(operacion, resultado, ahora)
