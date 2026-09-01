@@ -1,5 +1,5 @@
 import csv
-# NASDAQ SENTINEL ANALISIS - VERSION MULTICHAT 2026-09-01
+# NASDAQ SENTINEL ANALISIS - V5 CALIDAD DE DATOS 2026-09-01
 import os
 import time
 import xml.etree.ElementTree as ET
@@ -21,6 +21,8 @@ ESPERA_MINIMA_ALERTAS = 900
 ZONA_NUEVA_YORK = ZoneInfo("America/New_York")
 ARCHIVO_SENALES = Path("senales_simuladas.csv")
 MAXIMO_TELEGRAM = 3900
+EDAD_DATOS_VERDES_MINUTOS = 12
+EDAD_DATOS_AMARILLOS_MINUTOS = 25
 
 FUENTES_MACRO = (
     ("Reserva Federal", "https://www.federalreserve.gov/feeds/press_monetary.xml"),
@@ -311,6 +313,45 @@ def crear_plan(direccion, ema20, atr, fvg):
     }
 
 
+def evaluar_calidad_datos(momento, ultima_vela):
+    antiguedad = max(0.0, (momento - ultima_vela).total_seconds() / 60)
+    if not sesion_nueva_york_abierta(momento):
+        return {
+            "codigo": "FUERA_SESION",
+            "semaforo": "🔵",
+            "etiqueta": "MERCADO CERRADO",
+            "antiguedad_minutos": round(antiguedad, 1),
+            "operativa_permitida": False,
+            "detalle": "Fuera del horario regular de Nueva York.",
+        }
+    if antiguedad <= EDAD_DATOS_VERDES_MINUTOS:
+        return {
+            "codigo": "VERDE",
+            "semaforo": "🟢",
+            "etiqueta": "DATOS RECIENTES",
+            "antiguedad_minutos": round(antiguedad, 1),
+            "operativa_permitida": True,
+            "detalle": "Lectura apta para analisis simulado.",
+        }
+    if antiguedad <= EDAD_DATOS_AMARILLOS_MINUTOS:
+        return {
+            "codigo": "AMARILLO",
+            "semaforo": "🟡",
+            "etiqueta": "DATOS CON RETRASO",
+            "antiguedad_minutos": round(antiguedad, 1),
+            "operativa_permitida": False,
+            "detalle": "Solo observacion; se bloquean nuevas configuraciones.",
+        }
+    return {
+        "codigo": "ROJO",
+        "semaforo": "🔴",
+        "etiqueta": "DATOS NO FIABLES",
+        "antiguedad_minutos": round(antiguedad, 1),
+        "operativa_permitida": False,
+        "detalle": "No operar; se esperan datos mas recientes.",
+    }
+
+
 def analizar_mercado():
     datos = descargar_datos()
     momento = datetime.now(ZONA_NUEVA_YORK)
@@ -323,8 +364,9 @@ def analizar_mercado():
     rsi = float(ultima["RSI14"])
     atr = float(ultima["ATR14"])
     ultima_vela = datos.index[-1].to_pydatetime()
-    antiguedad_minutos = max(0, (momento - ultima_vela).total_seconds() / 60)
-    datos_atrasados = sesion_nueva_york_abierta(momento) and antiguedad_minutos > 30
+    calidad_datos = evaluar_calidad_datos(momento, ultima_vela)
+    antiguedad_minutos = calidad_datos["antiguedad_minutos"]
+    datos_atrasados = not calidad_datos["operativa_permitida"]
 
     puntos_largo = 0
     puntos_corto = 0
@@ -351,8 +393,12 @@ def analizar_mercado():
         puntos_corto += 1
 
     plan = None
-    if datos_atrasados:
-        estado = "DATOS ATRASADOS"
+    if calidad_datos["codigo"] == "AMARILLO":
+        estado = "DATOS EN OBSERVACION"
+    elif calidad_datos["codigo"] == "ROJO":
+        estado = "DATOS NO FIABLES"
+    elif datos_atrasados:
+        estado = "MERCADO CERRADO"
     elif puntos_largo >= 5 and puntos_largo > puntos_corto:
         estado = "POSIBLE LARGO"
         plan = crear_plan("LARGO", ema20, atr, fvg_alcista)
@@ -385,9 +431,12 @@ def analizar_mercado():
     else:
         texto_plan = "\nSin entrada simulada: faltan confirmaciones.\n"
 
-    aviso_datos = ""
+    aviso_datos = (
+        f"\n{calidad_datos['semaforo']} Calidad: {calidad_datos['etiqueta']} "
+        f"({antiguedad_minutos:.1f} min)\n"
+    )
     if datos_atrasados:
-        aviso_datos = "\n⚠️ Datos atrasados: no usar esta lectura como señal.\n"
+        aviso_datos += "⚠️ Nuevas configuraciones bloqueadas por seguridad.\n"
 
     mensaje = (
         "🧭 NASDAQ SENTINEL V4\n\n"
@@ -427,6 +476,8 @@ def analizar_mercado():
         "fvg_alcista": fvg_alcista,
         "fvg_bajista": fvg_bajista,
         "plan": plan,
+        "calidad_datos": calidad_datos,
+        "antiguedad_minutos": antiguedad_minutos,
         "datos_atrasados": datos_atrasados,
         "mensaje": mensaje,
     }
