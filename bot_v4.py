@@ -1,4 +1,5 @@
 import csv
+# NASDAQ SENTINEL ANALISIS - VERSION MULTICHAT 2026-09-01
 import os
 import time
 import xml.etree.ElementTree as ET
@@ -69,47 +70,70 @@ def _trocear_mensaje(mensaje, limite=MAXIMO_TELEGRAM):
     return partes
 
 
+def obtener_chat_ids_telegram():
+    """Devuelve, sin duplicados, los chats autorizados para alertas y consultas."""
+    chat_ids = []
+    for nombre_variable in ("TELEGRAM_CHAT_ID", "TELEGRAM_CHAT_ID_HIJO"):
+        for valor in os.getenv(nombre_variable, "").split(","):
+            chat_id = valor.strip()
+            if chat_id and chat_id not in chat_ids:
+                chat_ids.append(chat_id)
+    return chat_ids
+
+
 def enviar_telegram(mensaje):
     token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-    chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-    if not token or not chat_id:
-        raise ValueError("Faltan TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID")
+    chat_ids = obtener_chat_ids_telegram()
+    if not token or not chat_ids:
+        raise ValueError("Faltan TELEGRAM_BOT_TOKEN o chats autorizados")
 
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    for parte in _trocear_mensaje(mensaje):
-        ultimo_error = None
-        for intento in range(3):
-            try:
-                respuesta = requests.post(
-                    url,
-                    data={"chat_id": chat_id, "text": parte},
-                    timeout=20,
-                )
-                if respuesta.ok:
-                    ultimo_error = None
-                    break
-
+    entregas = 0
+    errores = []
+    for chat_id in chat_ids:
+        entrega_chat_completa = True
+        for parte in _trocear_mensaje(mensaje):
+            ultimo_error = None
+            for intento in range(3):
                 try:
-                    detalle = respuesta.json().get("description", respuesta.text)
-                except ValueError:
-                    detalle = respuesta.text
-                ultimo_error = RuntimeError(
-                    f"Telegram {respuesta.status_code}: {detalle}"
-                )
+                    respuesta = requests.post(
+                        url,
+                        data={"chat_id": chat_id, "text": parte},
+                        timeout=20,
+                    )
+                    if respuesta.ok:
+                        ultimo_error = None
+                        break
 
-                if respuesta.status_code == 429 or respuesta.status_code >= 500:
-                    time.sleep(2 ** intento)
-                    continue
-                raise ultimo_error
-            except requests.RequestException as error:
-                ultimo_error = error
-                if intento < 2:
-                    time.sleep(2 ** intento)
-                    continue
+                    try:
+                        detalle = respuesta.json().get("description", respuesta.text)
+                    except ValueError:
+                        detalle = respuesta.text
+                    ultimo_error = RuntimeError(
+                        f"Telegram {respuesta.status_code}: {detalle}"
+                    )
+
+                    if respuesta.status_code == 429 or respuesta.status_code >= 500:
+                        time.sleep(2 ** intento)
+                        continue
+                    break
+                except requests.RequestException as error:
+                    ultimo_error = error
+                    if intento < 2:
+                        time.sleep(2 ** intento)
+                        continue
+                    break
             if ultimo_error:
-                raise ultimo_error
-        if ultimo_error:
-            raise ultimo_error
+                entrega_chat_completa = False
+                errores.append(f"chat {chat_id}: {ultimo_error}")
+                break
+        if entrega_chat_completa:
+            entregas += 1
+
+    if entregas == 0 and errores:
+        raise RuntimeError("; ".join(errores))
+    for error in errores:
+        print(f"Aviso de entrega de Telegram: {error}")
 
 
 def sesion_nueva_york_abierta(momento):
