@@ -1,6 +1,6 @@
 import csv
 import json
-# NASDAQ SENTINEL CLOUD - VERSION ESTADO INSTANTANEO 2026-09-01
+# NASDAQ SENTINEL CLOUD - VERSION ESTADO INSTANTANEO V2 2026-09-01
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -739,6 +739,7 @@ def ejecutar_prueba_manual():
     estado = cargar_estado()
     ahora = datetime.now(ZONA_NUEVA_YORK)
     estado["ultima_ejecucion"] = ahora.isoformat()
+    guardar_estado(estado)
     if not webhook_telegram_activo() and procesar_comandos_telegram(estado, ahora):
         guardar_estado(estado)
 
@@ -755,6 +756,15 @@ def ejecutar_prueba_manual():
         enviar_telegram("🧪 PRUEBA DE MERCADO\n\n" + resultado["mensaje"])
         print("Analisis de mercado enviado correctamente.")
     except Exception as error:
+        estado["ultimo_analisis_mensaje"] = (
+            "📊 ÚLTIMO ANÁLISIS\n\n"
+            "Los datos de mercado no están disponibles en este momento. "
+            "El bot volverá a actualizarlos en la próxima revisión automática."
+        )
+        estado["ultimo_error_analisis"] = (
+            f"{type(error).__name__}: {str(error)[:200]}"
+        )
+        guardar_estado(estado)
         enviar_telegram(
             "ℹ️ PRUEBA DE MERCADO NO DISPONIBLE\n\n"
             f"Telegram funciona. Detalle: {type(error).__name__}: {error}"
