@@ -1,3 +1,4 @@
+# NASDAQ SENTINEL WORKFLOW - VERSION ESTADO INSTANTANEO 2026-09-01
 name: Nasdaq Sentinel Cloud
 
 on:
@@ -38,6 +39,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_CHAT_ID_HIJO: ${{ secrets.TELEGRAM_CHAT_ID_HIJO }}
+          TELEGRAM_WEBHOOK_ACTIVO: "1"
         run: python bot_cloud.py
 
       - name: Save state and signals
@@ -45,7 +47,8 @@ jobs:
           git config user.name "Nasdaq Sentinel Cloud"
           git config user.email "actions@users.noreply.github.com"
 
-          git add estado_cloud.json senales_simuladas.csv 2>/dev/null || true
+          git add estado_cloud.json 2>/dev/null || true
+          git add senales_simuladas.csv 2>/dev/null || true
 
           if ! git diff --cached --quiet; then
             git commit -m "Actualizar el estado de Nasdaq Sentinel"
