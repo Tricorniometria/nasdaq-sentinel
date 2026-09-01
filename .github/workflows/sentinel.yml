@@ -2,7 +2,6 @@ name: Nasdaq Sentinel Cloud
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "*/5 13-21 * * 1-5"
 
@@ -38,6 +37,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID_HIJO: ${{ secrets.TELEGRAM_CHAT_ID_HIJO }}
         run: python bot_cloud.py
 
       - name: Save state and signals
@@ -48,7 +48,7 @@ jobs:
           git add estado_cloud.json senales_simuladas.csv 2>/dev/null || true
 
           if ! git diff --cached --quiet; then
-            git commit -m "Update Nasdaq Sentinel state"
+            git commit -m "Actualizar el estado de Nasdaq Sentinel"
             git pull --rebase
             git push
           fi
