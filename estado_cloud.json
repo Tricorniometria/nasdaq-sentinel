@@ -1,5 +1,5 @@
 {
-  "sesion_abierta": true,
+  "sesion_abierta": false,
   "ultimo_estado_notificado": "POSIBLE CORTO",
   "ultimo_envio": "2026-09-01T14:55:06.001736-04:00",
   "macro_vistos": [
@@ -10,31 +10,7 @@
     "https://www.federalreserve.gov/newsevents/speech/jefferson20260716a.htm"
   ],
   "ultimo_error_notificado": null,
-  "operacion_abierta": {
-    "id": "20260901-145506",
-    "creada": "2026-09-01T14:55:06.001736-04:00",
-    "estado_senal": "POSIBLE CORTO",
-    "direccion": "CORTO",
-    "precio_senal": 29019.25,
-    "entrada_baja": 29020.5,
-    "entrada_alta": 29058.0,
-    "entrada": 29039.25,
-    "stop_inicial": 29076.910714285714,
-    "stop_actual": 29076.910714285714,
-    "objetivo_1": 29001.589285714286,
-    "objetivo_2": 28963.928571428572,
-    "rsi14": 20.427553444180518,
-    "atr14": 25.214285714285715,
-    "estado_operacion": "ESPERANDO_ENTRADA",
-    "fecha_entrada": null,
-    "fecha_cierre": null,
-    "precio_salida": null,
-    "resultado_final": null,
-    "resultado_r": null,
-    "tp1_alcanzado": false,
-    "ultimo_precio": 29019.25,
-    "ultima_vela_revisada": "2026-09-01T14:45:00-04:00"
-  },
+  "operacion_abierta": null,
   "resumen_sesion": {
     "fecha": "2026-09-01",
     "cerradas": 0,
@@ -42,13 +18,13 @@
     "objetivos_2": 0,
     "breakeven": 0,
     "cierres_sesion": 0,
-    "canceladas": 0,
+    "canceladas": 1,
     "r_total": 0.0
   },
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-01T14:55:06.001736-04:00",
+  "ultima_ejecucion": "2026-09-01T17:38:33.551052-04:00",
   "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 29019.25\nEMA20 / EMA50: 29104.17 / 29145.18\nRSI14: 20.43 | ATR14: 25.21\nPuntuacion largo/corto: 0/5\n\nSesion NY: 29002.25 - 29317.75\nBalance 25%-75%: 29081.12 - 29238.88\nEquilibrio: 29160.00\nRango apertura: 29040.25 - 29158.00\nDia anterior: 29355.00 - 29538.25\n\nFVG alcista: ninguno activo\nFVG bajista: 29020.50 - 29058.00\n\nPLAN SIMULADO CORTO\nEntrada: 29020.50 - 29058.00\nStop: 29076.91\nObjetivo 1: 29001.59\nObjetivo 2: 28963.93\n\n🟢 Calidad: DATOS RECIENTES (10.2 min)\n\nUltima vela NY: 01/09/2026 14:45\nHora Nueva York: 01/09/2026 14:55\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
