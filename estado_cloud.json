@@ -24,28 +24,28 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-02T13:11:18.533199-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 29170.50\nEMA20 / EMA50: 29161.18 / 29138.50\nRSI14: 55.64 | ATR14: 22.88\nPuntuacion largo/corto: 5/1\n\nSesion NY: 29017.25 - 29213.00\nBalance 25%-75%: 29066.19 - 29164.06\nEquilibrio: 29115.12\nRango apertura: 29017.25 - 29119.00\nDia anterior: 29002.00 - 29317.75\n\nFVG alcista: 29084.00 - 29088.00\nFVG bajista: 29176.25 - 29182.25\n\nPLAN SIMULADO LARGO\nEntrada: 29084.00 - 29088.00\nStop: 29066.84\nObjetivo 1: 29105.16\nObjetivo 2: 29124.31\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 02/09/2026 13:00\nHora Nueva York: 02/09/2026 13:11\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-02T13:16:22.057551-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR ALCISTA\nPrecio NQ: 29167.75\nEMA20 / EMA50: 29162.11 / 29139.78\nRSI14: 44.03 | ATR14: 20.68\nPuntuacion largo/corto: 4/1\n\nSesion NY: 29017.25 - 29213.00\nBalance 25%-75%: 29066.19 - 29164.06\nEquilibrio: 29115.12\nRango apertura: 29017.25 - 29119.00\nDia anterior: 29002.00 - 29317.75\n\nFVG alcista: 29084.00 - 29088.00\nFVG bajista: ninguno activo\n\nSin entrada simulada: faltan confirmaciones.\n\n🟢 Calidad: DATOS RECIENTES (11.4 min)\n\nUltima vela NY: 02/09/2026 13:05\nHora Nueva York: 02/09/2026 13:16\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-02T13:11:19.495045-04:00",
-    "ultima_vela": "2026-09-02T13:00:00-04:00",
-    "antiguedad_minutos": 11.3,
+    "fecha_analisis": "2026-09-02T13:16:24.096292-04:00",
+    "ultima_vela": "2026-09-02T13:05:00-04:00",
+    "antiguedad_minutos": 11.4,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.3,
+      "antiguedad_minutos": 11.4,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE LARGO",
-    "precio": 29170.5,
-    "ema20": 29161.18198420328,
-    "ema50": 29138.49707480882,
-    "rsi": 55.63689604685212,
-    "atr": 22.875,
-    "puntos_largo": 5,
+    "estado": "VIGILAR ALCISTA",
+    "precio": 29167.75,
+    "ema20": 29162.109096818844,
+    "ema50": 29139.776120702514,
+    "rsi": 44.027303754266214,
+    "atr": 20.678571428571427,
+    "puntos_largo": 4,
     "puntos_corto": 1,
     "niveles": {
       "maximo_sesion": 29213.0,
@@ -62,20 +62,10 @@
       29084.0,
       29088.0
     ],
-    "fvg_bajista": [
-      29176.25,
-      29182.25
-    ],
-    "plan": {
-      "direccion": "LARGO",
-      "entrada_baja": 29084.0,
-      "entrada_alta": 29088.0,
-      "stop": 29066.84375,
-      "objetivo_1": 29105.15625,
-      "objetivo_2": 29124.3125
-    }
+    "fvg_bajista": null,
+    "plan": null
   },
-  "ultimo_analisis_correcto": "2026-09-02T13:11:19.495045-04:00",
-  "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29170.50\nMinimo / maximo: 29017.25 / 29213.00\nBalance 25%-75%: 29066.19 - 29164.06\nEquilibrio: 29115.12\nRango de apertura: 29017.25 - 29119.00\n\nFVG alcista: 29084.00 - 29088.00\nFVG bajista: 29176.25 - 29182.25\n\nPlan LARGO: 29084.00 - 29088.00\nStop: 29066.84\nObjetivos: 29105.16 / 29124.31\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-02T13:16:24.096292-04:00",
+  "ultimo_estado_analizado": "VIGILAR ALCISTA",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29167.75\nMinimo / maximo: 29017.25 / 29213.00\nBalance 25%-75%: 29066.19 - 29164.06\nEquilibrio: 29115.12\nRango de apertura: 29017.25 - 29119.00\n\nFVG alcista: 29084.00 - 29088.00\nFVG bajista: ninguno activo\n\nSin plan de entrada: faltan confirmaciones.\n\nLectura simulada; confirmar siempre en el grafico."
 }
