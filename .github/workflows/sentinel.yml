@@ -1,13 +1,11 @@
-# NASDAQ SENTINEL WORKFLOW - V6 AUTOMATIZACION ROBUSTA 2026-09-01
+# NASDAQ SENTINEL WORKFLOW - V7 UN SOLO ACTIVADOR 2026-09-03
 name: Nasdaq Sentinel Cloud
 
 on:
   workflow_dispatch:
-  schedule:
-    # GitHub ejecuta cada cinco minutos de lunes a viernes.
-    # bot_cloud.py decide internamente si la sesion de Nueva York esta abierta.
-    # Se evitan los minutos 00 y 05 para reducir retrasos por saturacion.
-    - cron: "2-57/5 * * * 1-5"
+
+# Cloudflare es el unico reloj y llama a workflow_dispatch cada cinco minutos.
+# No se añade schedule aqui para evitar ejecuciones dobles y estados cruzados.
 
 permissions:
   contents: write
