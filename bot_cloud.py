@@ -1,6 +1,6 @@
 import csv
 import json
-# NASDAQ SENTINEL CLOUD - V5 PANEL PROFESIONAL 2026-09-01
+# NASDAQ SENTINEL CLOUD - V7 PLANES VALIDADOS 2026-09-03
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -23,6 +23,7 @@ from bot_v4 import (
 ARCHIVO_ESTADO = Path("estado_cloud.json")
 ESPERA_MINIMA_ALERTAS = 900
 CADUCIDAD_ENTRADA_MINUTOS = 90
+ESPERA_ENTRE_CONFIGURACIONES_SEGUNDOS = 1800
 MAXIMOS_MACRO_VISTOS = 100
 ANTIGUEDAD_MAXIMA_COMANDO_SEGUNDOS = 1800
 VERSION_MENU_TELEGRAM = 5
@@ -64,6 +65,8 @@ def estado_inicial():
         "macro_vistos": [],
         "ultimo_error_notificado": None,
         "operacion_abierta": None,
+        "ultima_configuracion_firma": None,
+        "ultima_configuracion_fecha": None,
         "resumen_sesion": resumen_vacio(),
         "ultimo_update_telegram": 0,
         "menu_telegram_configurado": False,
@@ -214,7 +217,10 @@ def mensaje_niveles(resultado):
             f"Objetivos: {plan['objetivo_1']:.2f} / {plan['objetivo_2']:.2f}"
         )
     else:
-        texto_plan = "Sin plan de entrada: faltan confirmaciones."
+        texto_plan = (
+            "Sin plan de entrada: "
+            f"{resultado.get('motivo_plan') or 'faltan confirmaciones.'}"
+        )
 
     return (
         "📐 NIVELES NASDAQ — SESION NY\n\n"
@@ -256,6 +262,7 @@ def actualizar_estado_analisis(estado, resultado):
         "fvg_alcista": list(fvg_alcista) if fvg_alcista else None,
         "fvg_bajista": list(fvg_bajista) if fvg_bajista else None,
         "plan": plan,
+        "motivo_plan": resultado.get("motivo_plan"),
     }
     estado["ultimo_snapshot_mercado"] = snapshot
     estado["ultimo_analisis_correcto"] = resultado["momento"].isoformat()
@@ -296,7 +303,10 @@ def mensaje_mercado_guardado(estado):
     elif plan:
         decision = f"CONFIGURACION SIMULADA {plan['direccion']}."
     else:
-        decision = "ESPERAR — faltan confirmaciones."
+        decision = (
+            "ESPERAR — "
+            f"{snapshot.get('motivo_plan') or 'faltan confirmaciones.'}"
+        )
     return (
         "📈 PANEL PROFESIONAL DE MERCADO\n\n"
         f"Calidad: {calidad.get('semaforo', '⚪')} "
@@ -614,6 +624,40 @@ def crear_operacion(resultado, ahora):
     }
 
 
+def firma_plan(plan):
+    if not plan:
+        return None
+    return ":".join(
+        [
+            str(plan["direccion"]),
+            f"{plan['entrada_baja']:.2f}",
+            f"{plan['entrada_alta']:.2f}",
+            f"{plan['stop']:.2f}",
+            f"{plan['objetivo_2']:.2f}",
+        ]
+    )
+
+
+def puede_crear_configuracion(estado, resultado, ahora):
+    plan = resultado.get("plan")
+    if not plan or resultado.get("datos_atrasados"):
+        return False
+
+    firma = firma_plan(plan)
+    if firma == estado.get("ultima_configuracion_firma"):
+        return False
+
+    ultima_fecha = estado.get("ultima_configuracion_fecha")
+    if ultima_fecha:
+        try:
+            segundos = (ahora - datetime.fromisoformat(ultima_fecha)).total_seconds()
+            if segundos < ESPERA_ENTRE_CONFIGURACIONES_SEGUNDOS:
+                return False
+        except (TypeError, ValueError):
+            pass
+    return True
+
+
 def mensaje_configuracion(operacion):
     return (
         "⏳ CONFIGURACION SIMULADA CREADA\n\n"
@@ -663,12 +707,30 @@ def evaluar_operacion(operacion, resultado, ahora):
         ) or (
             operacion["direccion"] == "CORTO" and resultado["estado"] == "POSIBLE LARGO"
         )
-        if minutos >= CADUCIDAD_ENTRADA_MINUTOS or direccion_opuesta:
-            motivo = "CANCELADA_POR_CAMBIO" if direccion_opuesta else "CANCELADA_POR_TIEMPO"
+        plan_actual = resultado.get("plan")
+        plan_sigue_valido = (
+            plan_actual is not None
+            and plan_actual.get("direccion") == operacion["direccion"]
+            and not resultado.get("datos_atrasados")
+        )
+        if (
+            minutos >= CADUCIDAD_ENTRADA_MINUTOS
+            or direccion_opuesta
+            or not plan_sigue_valido
+        ):
+            if direccion_opuesta:
+                motivo = "CANCELADA_POR_CAMBIO"
+                detalle = "El sesgo tecnico cambio de direccion."
+            elif minutos >= CADUCIDAD_ENTRADA_MINUTOS:
+                motivo = "CANCELADA_POR_TIEMPO"
+                detalle = "La entrada no se activo dentro del tiempo permitido."
+            else:
+                motivo = "CANCELADA_POR_PLAN_INVALIDO"
+                detalle = "El plan dejo de cumplir las validaciones de seguridad."
             cerrar_operacion(operacion, motivo, None, ahora, 0.0)
             eventos.append(
                 "⚪ CONFIGURACION SIMULADA CANCELADA\n\n"
-                "La entrada no se activo o el sesgo tecnico cambio."
+                f"{detalle}"
             )
             return eventos, True
         if minimo <= operacion["entrada"] <= maximo:
@@ -929,19 +991,22 @@ def ejecutar_programacion():
         espera = segundos is None or segundos >= ESPERA_MINIMA_ALERTAS
         if estado_actual != ultimo and espera:
             enviar_telegram(resultado["mensaje"])
-            if (
-                resultado.get("plan")
-                and not resultado.get("datos_atrasados")
-                and estado.get("operacion_abierta") is None
-            ):
-                operacion = crear_operacion(resultado, ahora)
-                estado["operacion_abierta"] = operacion
-                enviar_telegram(mensaje_configuracion(operacion))
             estado["ultimo_estado_notificado"] = estado_actual
             estado["ultimo_envio"] = ahora.isoformat()
             print(f"Alerta enviada: {estado_actual}")
         else:
             print(f"Sin alerta tecnica nueva: {estado_actual}")
+
+        if (
+            estado.get("operacion_abierta") is None
+            and puede_crear_configuracion(estado, resultado, ahora)
+        ):
+            operacion = crear_operacion(resultado, ahora)
+            estado["operacion_abierta"] = operacion
+            estado["ultima_configuracion_firma"] = firma_plan(resultado["plan"])
+            estado["ultima_configuracion_fecha"] = ahora.isoformat()
+            enviar_telegram(mensaje_configuracion(operacion))
+            print(f"Configuracion creada: {operacion['id']}")
         estado["ultimo_error_notificado"] = None
         guardar_estado(estado)
     except Exception as error:

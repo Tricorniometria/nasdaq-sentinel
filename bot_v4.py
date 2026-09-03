@@ -1,5 +1,6 @@
 import csv
-# NASDAQ SENTINEL ANALISIS - V5 CALIDAD DE DATOS 2026-09-01
+# NASDAQ SENTINEL ANALISIS - V7 VALIDACION DE PLANES 2026-09-03
+import math
 import os
 import time
 import xml.etree.ElementTree as ET
@@ -23,6 +24,9 @@ ARCHIVO_SENALES = Path("senales_simuladas.csv")
 MAXIMO_TELEGRAM = 3900
 EDAD_DATOS_VERDES_MINUTOS = 12
 EDAD_DATOS_AMARILLOS_MINUTOS = 25
+MAX_EDAD_FVG_VELAS = 12
+MAX_DISTANCIA_FVG_ATR = 1.5
+MAX_DISTANCIA_ENTRADA_ATR = 1.5
 
 FUENTES_MACRO = (
     ("Reserva Federal", "https://www.federalreserve.gov/feeds/press_monetary.xml"),
@@ -208,7 +212,8 @@ def detectar_fvg(datos, fecha_actual=None):
                 not posteriores.empty
                 and float(posteriores["Low"].min()) <= inferior
             )
-            if not rellenado:
+            edad_velas = len(tramo) - 1 - posicion
+            if not rellenado and edad_velas <= MAX_EDAD_FVG_VELAS:
                 fvg_alcista = (inferior, superior)
         if float(tercera["High"]) < float(primera["Low"]):
             inferior = float(tercera["High"])
@@ -217,7 +222,8 @@ def detectar_fvg(datos, fecha_actual=None):
                 not posteriores.empty
                 and float(posteriores["High"].max()) >= superior
             )
-            if not rellenado:
+            edad_velas = len(tramo) - 1 - posicion
+            if not rellenado and edad_velas <= MAX_EDAD_FVG_VELAS:
                 fvg_bajista = (inferior, superior)
     return fvg_alcista, fvg_bajista
 
@@ -313,6 +319,72 @@ def crear_plan(direccion, ema20, atr, fvg):
     }
 
 
+def seleccionar_fvg_cercano(fvg, precio, atr):
+    """Solo permite FVG recientes que sigan razonablemente cerca del precio."""
+    if fvg is None or not math.isfinite(atr) or atr <= 0:
+        return None
+    centro = sum(fvg) / 2
+    if abs(precio - centro) > atr * MAX_DISTANCIA_FVG_ATR:
+        return None
+    return fvg
+
+
+def validar_plan(plan, precio, atr):
+    """Impide publicar planes agotados, alejados o matematicamente incoherentes."""
+    if plan is None or not math.isfinite(atr) or atr <= 0:
+        return False, "No se pudo calcular un riesgo valido."
+
+    valores = (
+        precio,
+        plan["entrada_baja"],
+        plan["entrada_alta"],
+        plan["stop"],
+        plan["objetivo_1"],
+        plan["objetivo_2"],
+    )
+    if not all(math.isfinite(valor) for valor in valores):
+        return False, "El plan contiene valores no validos."
+
+    entrada_baja = plan["entrada_baja"]
+    entrada_alta = plan["entrada_alta"]
+    if entrada_baja >= entrada_alta:
+        return False, "La zona de entrada no es valida."
+
+    if precio > entrada_alta:
+        distancia = precio - entrada_alta
+    elif precio < entrada_baja:
+        distancia = entrada_baja - precio
+    else:
+        distancia = 0.0
+    if distancia > atr * MAX_DISTANCIA_ENTRADA_ATR:
+        return False, "La entrada esta demasiado alejada del precio actual."
+
+    if plan["direccion"] == "LARGO":
+        estructura = (
+            plan["stop"] < entrada_baja < entrada_alta
+            < plan["objetivo_1"] < plan["objetivo_2"]
+        )
+        if not estructura:
+            return False, "El orden de entrada, stop y objetivos no es coherente."
+        if precio >= plan["objetivo_1"]:
+            return False, "El movimiento alcista ya ha superado el primer objetivo."
+        if precio < entrada_baja:
+            return False, "El precio ya ha perdido la zona de entrada alcista."
+    else:
+        estructura = (
+            plan["objetivo_2"] < plan["objetivo_1"]
+            < entrada_baja < entrada_alta < plan["stop"]
+        )
+        if not estructura:
+            return False, "El orden de entrada, stop y objetivos no es coherente."
+        if precio <= plan["objetivo_1"]:
+            return False, "El movimiento bajista ya ha superado el primer objetivo."
+        if precio > entrada_alta:
+            return False, "El precio ya ha superado la zona de entrada bajista."
+
+    return True, "Plan validado."
+
+
 def evaluar_calidad_datos(momento, ultima_vela):
     antiguedad = max(0.0, (momento - ultima_vela).total_seconds() / 60)
     if not sesion_nueva_york_abierta(momento):
@@ -393,6 +465,7 @@ def analizar_mercado():
         puntos_corto += 1
 
     plan = None
+    motivo_plan = "Faltan confirmaciones tecnicas."
     if calidad_datos["codigo"] == "AMARILLO":
         estado = "DATOS EN OBSERVACION"
     elif calidad_datos["codigo"] == "ROJO":
@@ -400,11 +473,23 @@ def analizar_mercado():
     elif datos_atrasados:
         estado = "MERCADO CERRADO"
     elif puntos_largo >= 5 and puntos_largo > puntos_corto:
-        estado = "POSIBLE LARGO"
-        plan = crear_plan("LARGO", ema20, atr, fvg_alcista)
+        fvg_plan = seleccionar_fvg_cercano(fvg_alcista, precio, atr)
+        candidato = crear_plan("LARGO", ema20, atr, fvg_plan)
+        valido, motivo_plan = validar_plan(candidato, precio, atr)
+        if valido:
+            estado = "POSIBLE LARGO"
+            plan = candidato
+        else:
+            estado = "SESGO ALCISTA - ESPERAR"
     elif puntos_corto >= 5 and puntos_corto > puntos_largo:
-        estado = "POSIBLE CORTO"
-        plan = crear_plan("CORTO", ema20, atr, fvg_bajista)
+        fvg_plan = seleccionar_fvg_cercano(fvg_bajista, precio, atr)
+        candidato = crear_plan("CORTO", ema20, atr, fvg_plan)
+        valido, motivo_plan = validar_plan(candidato, precio, atr)
+        if valido:
+            estado = "POSIBLE CORTO"
+            plan = candidato
+        else:
+            estado = "SESGO BAJISTA - ESPERAR"
     elif puntos_largo >= 3 and puntos_largo > puntos_corto:
         estado = "VIGILAR ALCISTA"
     elif puntos_corto >= 3 and puntos_corto > puntos_largo:
@@ -429,7 +514,7 @@ def analizar_mercado():
             f"Objetivo 2: {plan['objetivo_2']:.2f}\n"
         )
     else:
-        texto_plan = "\nSin entrada simulada: faltan confirmaciones.\n"
+        texto_plan = f"\nSin entrada simulada: {motivo_plan}\n"
 
     aviso_datos = (
         f"\n{calidad_datos['semaforo']} Calidad: {calidad_datos['etiqueta']} "
@@ -476,6 +561,7 @@ def analizar_mercado():
         "fvg_alcista": fvg_alcista,
         "fvg_bajista": fvg_bajista,
         "plan": plan,
+        "motivo_plan": motivo_plan,
         "calidad_datos": calidad_datos,
         "antiguedad_minutos": antiguedad_minutos,
         "datos_atrasados": datos_atrasados,
