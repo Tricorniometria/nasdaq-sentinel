@@ -1,5 +1,5 @@
 import csv
-# NASDAQ SENTINEL ANALISIS - V7 VALIDACION DE PLANES 2026-09-03
+# NASDAQ SENTINEL ANALISIS - V7.1 SOBREEXTENSION 2026-09-03
 import math
 import os
 import time
@@ -27,6 +27,9 @@ EDAD_DATOS_AMARILLOS_MINUTOS = 25
 MAX_EDAD_FVG_VELAS = 12
 MAX_DISTANCIA_FVG_ATR = 1.5
 MAX_DISTANCIA_ENTRADA_ATR = 1.5
+MAX_EXTENSION_EMA_ATR = 1.75
+RSI_MAXIMO_NUEVO_LARGO = 72
+RSI_MINIMO_NUEVO_CORTO = 28
 
 FUENTES_MACRO = (
     ("Reserva Federal", "https://www.federalreserve.gov/feeds/press_monetary.xml"),
@@ -385,6 +388,27 @@ def validar_plan(plan, precio, atr):
     return True, "Plan validado."
 
 
+def validar_contexto_entrada(direccion, precio, ema20, rsi, atr):
+    """Bloquea entradas contra extremos de RSI o movimientos sobreextendidos."""
+    if not all(math.isfinite(valor) for valor in (precio, ema20, rsi, atr)):
+        return False, "No se pudo validar el contexto de mercado."
+    if atr <= 0:
+        return False, "El ATR no permite medir el riesgo."
+
+    if direccion == "LARGO":
+        if rsi > RSI_MAXIMO_NUEVO_LARGO:
+            return False, "RSI en sobrecompra; no se persigue el movimiento alcista."
+        if precio - ema20 > atr * MAX_EXTENSION_EMA_ATR:
+            return False, "Precio demasiado extendido por encima de EMA20."
+    else:
+        if rsi < RSI_MINIMO_NUEVO_CORTO:
+            return False, "RSI en sobreventa; no se persigue el movimiento bajista."
+        if ema20 - precio > atr * MAX_EXTENSION_EMA_ATR:
+            return False, "Precio demasiado extendido por debajo de EMA20."
+
+    return True, "Contexto validado."
+
+
 def evaluar_calidad_datos(momento, ultima_vela):
     antiguedad = max(0.0, (momento - ultima_vela).total_seconds() / 60)
     if not sesion_nueva_york_abierta(momento):
@@ -473,18 +497,26 @@ def analizar_mercado():
     elif datos_atrasados:
         estado = "MERCADO CERRADO"
     elif puntos_largo >= 5 and puntos_largo > puntos_corto:
-        fvg_plan = seleccionar_fvg_cercano(fvg_alcista, precio, atr)
-        candidato = crear_plan("LARGO", ema20, atr, fvg_plan)
-        valido, motivo_plan = validar_plan(candidato, precio, atr)
+        valido, motivo_plan = validar_contexto_entrada(
+            "LARGO", precio, ema20, rsi, atr
+        )
+        if valido:
+            fvg_plan = seleccionar_fvg_cercano(fvg_alcista, precio, atr)
+            candidato = crear_plan("LARGO", ema20, atr, fvg_plan)
+            valido, motivo_plan = validar_plan(candidato, precio, atr)
         if valido:
             estado = "POSIBLE LARGO"
             plan = candidato
         else:
             estado = "SESGO ALCISTA - ESPERAR"
     elif puntos_corto >= 5 and puntos_corto > puntos_largo:
-        fvg_plan = seleccionar_fvg_cercano(fvg_bajista, precio, atr)
-        candidato = crear_plan("CORTO", ema20, atr, fvg_plan)
-        valido, motivo_plan = validar_plan(candidato, precio, atr)
+        valido, motivo_plan = validar_contexto_entrada(
+            "CORTO", precio, ema20, rsi, atr
+        )
+        if valido:
+            fvg_plan = seleccionar_fvg_cercano(fvg_bajista, precio, atr)
+            candidato = crear_plan("CORTO", ema20, atr, fvg_plan)
+            valido, motivo_plan = validar_plan(candidato, precio, atr)
         if valido:
             estado = "POSIBLE CORTO"
             plan = candidato
