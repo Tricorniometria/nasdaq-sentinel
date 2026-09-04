@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-04T10:00:33.457134-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR ALCISTA\nPrecio NQ: 29629.25\nEMA20 / EMA50: 29604.26 / 29619.16\nRSI14: 66.32 | ATR14: 36.73\nPuntuacion largo/corto: 3/0\n\nSesion NY: 29554.50 - 29649.00\nBalance 25%-75%: 29578.12 - 29625.38\nEquilibrio: 29601.75\nRango apertura: 29554.50 - 29649.00\nDia anterior: 29199.50 - 29584.25\n\nFVG alcista: 29550.50 - 29561.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (10.6 min)\n\nUltima vela NY: 04/09/2026 09:50\nHora Nueva York: 04/09/2026 10:00\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-04T10:05:36.573883-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SIN CONFIGURACION\nPrecio NQ: 29663.25\nEMA20 / EMA50: 29612.53 / 29622.05\nRSI14: 85.54 | ATR14: 36.93\nPuntuacion largo/corto: 2/0\n\nSesion NY: 29554.50 - 29676.00\nBalance 25%-75%: 29584.88 - 29645.62\nEquilibrio: 29615.25\nRango apertura: 29554.50 - 29676.00\nDia anterior: 29199.50 - 29584.25\n\nFVG alcista: 29649.00 - 29652.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (10.6 min)\n\nUltima vela NY: 04/09/2026 09:55\nHora Nueva York: 04/09/2026 10:05\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-04T10:00:35.370314-04:00",
-    "ultima_vela": "2026-09-04T09:50:00-04:00",
+    "fecha_analisis": "2026-09-04T10:05:37.765868-04:00",
+    "ultima_vela": "2026-09-04T09:55:00-04:00",
     "antiguedad_minutos": 10.6,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,34 +41,34 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "VIGILAR ALCISTA",
-    "precio": 29629.25,
-    "ema20": 29604.257409628914,
-    "ema50": 29619.162316254267,
-    "rsi": 66.32420091324201,
-    "atr": 36.732142857142854,
-    "puntos_largo": 3,
+    "estado": "SIN CONFIGURACION",
+    "precio": 29663.25,
+    "ema20": 29612.525411432962,
+    "ema50": 29622.049837877516,
+    "rsi": 85.5392156862745,
+    "atr": 36.92857142857143,
+    "puntos_largo": 2,
     "puntos_corto": 0,
     "niveles": {
-      "maximo_sesion": 29649.0,
+      "maximo_sesion": 29676.0,
       "minimo_sesion": 29554.5,
-      "equilibrio": 29601.75,
-      "zona_descuento": 29578.125,
-      "zona_premium": 29625.375,
-      "maximo_apertura": 29649.0,
+      "equilibrio": 29615.25,
+      "zona_descuento": 29584.875,
+      "zona_premium": 29645.625,
+      "maximo_apertura": 29676.0,
       "minimo_apertura": 29554.5,
       "maximo_anterior": 29584.25,
       "minimo_anterior": 29199.5
     },
     "fvg_alcista": [
-      29550.5,
-      29561.25
+      29649.0,
+      29652.25
     ],
     "fvg_bajista": null,
     "plan": null,
     "motivo_plan": "Faltan confirmaciones tecnicas."
   },
-  "ultimo_analisis_correcto": "2026-09-04T10:00:35.370314-04:00",
-  "ultimo_estado_analizado": "VIGILAR ALCISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29629.25\nMinimo / maximo: 29554.50 / 29649.00\nBalance 25%-75%: 29578.12 - 29625.38\nEquilibrio: 29601.75\nRango de apertura: 29554.50 - 29649.00\n\nFVG alcista: 29550.50 - 29561.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-04T10:05:37.765868-04:00",
+  "ultimo_estado_analizado": "SIN CONFIGURACION",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29663.25\nMinimo / maximo: 29554.50 / 29676.00\nBalance 25%-75%: 29584.88 - 29645.62\nEquilibrio: 29615.25\nRango de apertura: 29554.50 - 29676.00\n\nFVG alcista: 29649.00 - 29652.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
 }
