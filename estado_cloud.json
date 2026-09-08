@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-08T13:20:33.958812-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 29622.00\nEMA20 / EMA50: 29594.53 / 29583.94\nRSI14: 50.94 | ATR14: 27.43\nPuntuacion largo/corto: 5/1\n\nSesion NY: 29424.75 - 29686.50\nBalance 25%-75%: 29490.19 - 29621.06\nEquilibrio: 29555.62\nRango apertura: 29455.25 - 29686.50\nDia anterior: 29468.00 - 29691.75\n\nFVG alcista: 29599.25 - 29616.50\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 29599.25 - 29616.50\nStop: 29578.68\nObjetivo 1: 29637.07\nObjetivo 2: 29666.27\n\n🟢 Calidad: DATOS RECIENTES (10.6 min)\n\nUltima vela NY: 08/09/2026 13:10\nHora Nueva York: 08/09/2026 13:20\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-08T13:25:23.385032-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 29630.50\nEMA20 / EMA50: 29598.54 / 29586.02\nRSI14: 60.54 | ATR14: 26.32\nPuntuacion largo/corto: 5/0\n\nSesion NY: 29424.75 - 29686.50\nBalance 25%-75%: 29490.19 - 29621.06\nEquilibrio: 29555.62\nRango apertura: 29455.25 - 29686.50\nDia anterior: 29468.00 - 29691.75\n\nFVG alcista: 29599.25 - 29616.50\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 29599.25 - 29616.50\nStop: 29579.51\nObjetivo 1: 29636.24\nObjetivo 2: 29664.61\n\n🟢 Calidad: DATOS RECIENTES (10.4 min)\n\nUltima vela NY: 08/09/2026 13:15\nHora Nueva York: 08/09/2026 13:25\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-08T13:20:36.360771-04:00",
-    "ultima_vela": "2026-09-08T13:10:00-04:00",
-    "antiguedad_minutos": 10.6,
+    "fecha_analisis": "2026-09-08T13:25:24.414514-04:00",
+    "ultima_vela": "2026-09-08T13:15:00-04:00",
+    "antiguedad_minutos": 10.4,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 10.6,
+      "antiguedad_minutos": 10.4,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "POSIBLE LARGO",
-    "precio": 29622.0,
-    "ema20": 29594.528905750056,
-    "ema50": 29583.93667751942,
-    "rsi": 50.93896713615024,
-    "atr": 27.428571428571427,
+    "precio": 29630.5,
+    "ema20": 29598.536356903114,
+    "ema50": 29586.017015425237,
+    "rsi": 60.54333764553687,
+    "atr": 26.321428571428573,
     "puntos_largo": 5,
-    "puntos_corto": 1,
+    "puntos_corto": 0,
     "niveles": {
       "maximo_sesion": 29686.5,
       "minimo_sesion": 29424.75,
@@ -69,13 +69,13 @@
       "direccion": "LARGO",
       "entrada_baja": 29599.25,
       "entrada_alta": 29616.5,
-      "stop": 29578.678571428572,
-      "objetivo_1": 29637.071428571428,
-      "objetivo_2": 29666.267857142855
+      "stop": 29579.508928571428,
+      "objetivo_1": 29636.241071428572,
+      "objetivo_2": 29664.607142857145
     },
     "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-09-08T13:20:36.360771-04:00",
+  "ultimo_analisis_correcto": "2026-09-08T13:25:24.414514-04:00",
   "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29622.00\nMinimo / maximo: 29424.75 / 29686.50\nBalance 25%-75%: 29490.19 - 29621.06\nEquilibrio: 29555.62\nRango de apertura: 29455.25 - 29686.50\n\nFVG alcista: 29599.25 - 29616.50\nFVG bajista: ninguno activo\n\nPlan LARGO: 29599.25 - 29616.50\nStop: 29578.68\nObjetivos: 29637.07 / 29666.27\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29630.50\nMinimo / maximo: 29424.75 / 29686.50\nBalance 25%-75%: 29490.19 - 29621.06\nEquilibrio: 29555.62\nRango de apertura: 29455.25 - 29686.50\n\nFVG alcista: 29599.25 - 29616.50\nFVG bajista: ninguno activo\n\nPlan LARGO: 29599.25 - 29616.50\nStop: 29579.51\nObjetivos: 29636.24 / 29664.61\n\nLectura simulada; confirmar siempre en el grafico."
 }
