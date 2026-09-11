@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-11T13:35:58.191117-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 29471.75\nEMA20 / EMA50: 29444.02 / 29425.22\nRSI14: 57.20 | ATR14: 24.48\nPuntuacion largo/corto: 5/0\n\nSesion NY: 29334.00 - 29499.75\nBalance 25%-75%: 29375.44 - 29458.31\nEquilibrio: 29416.88\nRango apertura: 29347.25 - 29480.75\nDia anterior: 29057.50 - 29275.00\n\nFVG alcista: 29462.75 - 29471.00\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 29462.75 - 29471.00\nStop: 29444.39\nObjetivo 1: 29489.36\nObjetivo 2: 29511.85\n\n🟢 Calidad: DATOS RECIENTES (11.0 min)\n\nUltima vela NY: 11/09/2026 13:25\nHora Nueva York: 11/09/2026 13:36\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-11T13:40:56.573563-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 29468.50\nEMA20 / EMA50: 29445.64 / 29426.61\nRSI14: 59.18 | ATR14: 24.25\nPuntuacion largo/corto: 5/0\n\nSesion NY: 29334.00 - 29499.75\nBalance 25%-75%: 29375.44 - 29458.31\nEquilibrio: 29416.88\nRango apertura: 29347.25 - 29480.75\nDia anterior: 29057.50 - 29275.00\n\nFVG alcista: 29429.00 - 29435.75\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento alcista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.0 min)\n\nUltima vela NY: 11/09/2026 13:30\nHora Nueva York: 11/09/2026 13:40\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-11T13:36:00.274379-04:00",
-    "ultima_vela": "2026-09-11T13:25:00-04:00",
+    "fecha_analisis": "2026-09-11T13:40:57.629462-04:00",
+    "ultima_vela": "2026-09-11T13:30:00-04:00",
     "antiguedad_minutos": 11.0,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,12 +41,12 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE LARGO",
-    "precio": 29471.75,
-    "ema20": 29444.024250224495,
-    "ema50": 29425.22496301025,
-    "rsi": 57.20476706392199,
-    "atr": 24.482142857142858,
+    "estado": "SESGO ALCISTA - ESPERAR",
+    "precio": 29468.5,
+    "ema20": 29445.644389658897,
+    "ema50": 29426.611181300508,
+    "rsi": 59.1792656587473,
+    "atr": 24.25,
     "puntos_largo": 5,
     "puntos_corto": 0,
     "niveles": {
@@ -61,21 +61,14 @@
       "minimo_anterior": 29057.5
     },
     "fvg_alcista": [
-      29462.75,
-      29471.0
+      29429.0,
+      29435.75
     ],
     "fvg_bajista": null,
-    "plan": {
-      "direccion": "LARGO",
-      "entrada_baja": 29462.75,
-      "entrada_alta": 29471.0,
-      "stop": 29444.38839285714,
-      "objetivo_1": 29489.36160714286,
-      "objetivo_2": 29511.848214285717
-    },
-    "motivo_plan": "Plan validado."
+    "plan": null,
+    "motivo_plan": "El movimiento alcista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-09-11T13:36:00.274379-04:00",
-  "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29471.75\nMinimo / maximo: 29334.00 / 29499.75\nBalance 25%-75%: 29375.44 - 29458.31\nEquilibrio: 29416.88\nRango de apertura: 29347.25 - 29480.75\n\nFVG alcista: 29462.75 - 29471.00\nFVG bajista: ninguno activo\n\nPlan LARGO: 29462.75 - 29471.00\nStop: 29444.39\nObjetivos: 29489.36 / 29511.85\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-11T13:40:57.629462-04:00",
+  "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29468.50\nMinimo / maximo: 29334.00 / 29499.75\nBalance 25%-75%: 29375.44 - 29458.31\nEquilibrio: 29416.88\nRango de apertura: 29347.25 - 29480.75\n\nFVG alcista: 29429.00 - 29435.75\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento alcista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
