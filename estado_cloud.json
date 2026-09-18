@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-18T11:06:05.535495-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR BAJISTA\nPrecio NQ: 29755.75\nEMA20 / EMA50: 29755.75 / 29787.52\nRSI14: 40.39 | ATR14: 32.68\nPuntuacion largo/corto: 1/4\n\nSesion NY: 29692.75 - 29844.75\nBalance 25%-75%: 29730.75 - 29806.75\nEquilibrio: 29768.75\nRango apertura: 29765.75 - 29844.75\nDia anterior: 29605.75 - 29793.25\n\nFVG alcista: 29744.00 - 29752.25\nFVG bajista: 29789.50 - 29791.25\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.1 min)\n\nUltima vela NY: 18/09/2026 10:55\nHora Nueva York: 18/09/2026 11:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-18T11:11:15.141597-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 29750.25\nEMA20 / EMA50: 29755.44 / 29786.15\nRSI14: 41.81 | ATR14: 32.48\nPuntuacion largo/corto: 1/5\n\nSesion NY: 29692.75 - 29844.75\nBalance 25%-75%: 29730.75 - 29806.75\nEquilibrio: 29768.75\nRango apertura: 29765.75 - 29844.75\nDia anterior: 29605.75 - 29793.25\n\nFVG alcista: 29744.00 - 29747.50\nFVG bajista: ninguno activo\n\nPLAN SIMULADO CORTO\nEntrada: 29747.32 - 29763.56\nStop: 29787.92\nObjetivo 1: 29722.96\nObjetivo 2: 29690.48\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 18/09/2026 11:00\nHora Nueva York: 18/09/2026 11:11\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-18T11:06:06.815335-04:00",
-    "ultima_vela": "2026-09-18T10:55:00-04:00",
-    "antiguedad_minutos": 11.1,
+    "fecha_analisis": "2026-09-18T11:11:16.908902-04:00",
+    "ultima_vela": "2026-09-18T11:00:00-04:00",
+    "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.1,
+      "antiguedad_minutos": 11.3,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "VIGILAR BAJISTA",
-    "precio": 29755.75,
-    "ema20": 29755.74813411026,
-    "ema50": 29787.515622950126,
-    "rsi": 40.38929440389295,
-    "atr": 32.67857142857143,
+    "estado": "POSIBLE CORTO",
+    "precio": 29750.25,
+    "ema20": 29755.439921791367,
+    "ema50": 29786.14842051225,
+    "rsi": 41.81360201511335,
+    "atr": 32.482142857142854,
     "puntos_largo": 1,
-    "puntos_corto": 4,
+    "puntos_corto": 5,
     "niveles": {
       "maximo_sesion": 29844.75,
       "minimo_sesion": 29692.75,
@@ -62,16 +62,20 @@
     },
     "fvg_alcista": [
       29744.0,
-      29752.25
+      29747.5
     ],
-    "fvg_bajista": [
-      29789.5,
-      29791.25
-    ],
-    "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "fvg_bajista": null,
+    "plan": {
+      "direccion": "CORTO",
+      "entrada_baja": 29747.31938607708,
+      "entrada_alta": 29763.560457505653,
+      "stop": 29787.922064648512,
+      "objetivo_1": 29722.957778934222,
+      "objetivo_2": 29690.475636077077
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-09-18T11:06:06.815335-04:00",
-  "ultimo_estado_analizado": "VIGILAR BAJISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29755.75\nMinimo / maximo: 29692.75 / 29844.75\nBalance 25%-75%: 29730.75 - 29806.75\nEquilibrio: 29768.75\nRango de apertura: 29765.75 - 29844.75\n\nFVG alcista: 29744.00 - 29752.25\nFVG bajista: 29789.50 - 29791.25\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-18T11:11:16.908902-04:00",
+  "ultimo_estado_analizado": "POSIBLE CORTO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29750.25\nMinimo / maximo: 29692.75 / 29844.75\nBalance 25%-75%: 29730.75 - 29806.75\nEquilibrio: 29768.75\nRango de apertura: 29765.75 - 29844.75\n\nFVG alcista: 29744.00 - 29747.50\nFVG bajista: ninguno activo\n\nPlan CORTO: 29747.32 - 29763.56\nStop: 29787.92\nObjetivos: 29722.96 / 29690.48\n\nLectura simulada; confirmar siempre en el grafico."
 }
