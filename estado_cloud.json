@@ -26,28 +26,28 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-21T14:02:08.464834-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: DATOS EN OBSERVACION\nPrecio NQ: 30716.00\nEMA20 / EMA50: 30674.68 / 30586.88\nRSI14: 68.05 | ATR14: 17.70\nPuntuacion largo/corto: 5/0\n\nSesion NY: 30216.50 - 30724.50\nBalance 25%-75%: 30343.50 - 30597.50\nEquilibrio: 30470.50\nRango apertura: 30216.50 - 30423.00\nDia anterior: no disponible\n\nFVG alcista: 30684.50 - 30708.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟡 Calidad: DATOS CON RETRASO (12.2 min)\n⚠️ Nuevas configuraciones bloqueadas por seguridad.\n\nUltima vela NY: 21/09/2026 13:50\nHora Nueva York: 21/09/2026 14:02\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-21T14:06:06.638829-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 30715.75\nEMA20 / EMA50: 30678.81 / 30592.03\nRSI14: 65.05 | ATR14: 17.75\nPuntuacion largo/corto: 6/0\n\nSesion NY: 30216.50 - 30724.50\nBalance 25%-75%: 30343.50 - 30597.50\nEquilibrio: 30470.50\nRango apertura: 30216.50 - 30423.00\nDia anterior: no disponible\n\nFVG alcista: 30684.50 - 30708.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: Precio demasiado extendido por encima de EMA20.\n\n🟢 Calidad: DATOS RECIENTES (11.1 min)\n\nUltima vela NY: 21/09/2026 13:55\nHora Nueva York: 21/09/2026 14:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-21T14:02:10.229418-04:00",
-    "ultima_vela": "2026-09-21T13:50:00-04:00",
-    "antiguedad_minutos": 12.2,
+    "fecha_analisis": "2026-09-21T14:06:08.996805-04:00",
+    "ultima_vela": "2026-09-21T13:55:00-04:00",
+    "antiguedad_minutos": 11.1,
     "calidad_datos": {
-      "codigo": "AMARILLO",
-      "semaforo": "🟡",
-      "etiqueta": "DATOS CON RETRASO",
-      "antiguedad_minutos": 12.2,
-      "operativa_permitida": false,
-      "detalle": "Solo observacion; se bloquean nuevas configuraciones."
+      "codigo": "VERDE",
+      "semaforo": "🟢",
+      "etiqueta": "DATOS RECIENTES",
+      "antiguedad_minutos": 11.1,
+      "operativa_permitida": true,
+      "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "DATOS EN OBSERVACION",
-    "precio": 30716.0,
-    "ema20": 30674.678773248877,
-    "ema50": 30586.877423895363,
-    "rsi": 68.04733727810651,
-    "atr": 17.696428571428573,
-    "puntos_largo": 5,
+    "estado": "SESGO ALCISTA - ESPERAR",
+    "precio": 30715.75,
+    "ema20": 30678.80573815488,
+    "ema50": 30592.02544494983,
+    "rsi": 65.05050505050505,
+    "atr": 17.75,
+    "puntos_largo": 6,
     "puntos_corto": 0,
     "niveles": {
       "maximo_sesion": 30724.5,
@@ -66,9 +66,9 @@
     ],
     "fvg_bajista": null,
     "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "motivo_plan": "Precio demasiado extendido por encima de EMA20."
   },
-  "ultimo_analisis_correcto": "2026-09-21T14:02:10.229418-04:00",
-  "ultimo_estado_analizado": "DATOS EN OBSERVACION",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30716.00\nMinimo / maximo: 30216.50 / 30724.50\nBalance 25%-75%: 30343.50 - 30597.50\nEquilibrio: 30470.50\nRango de apertura: 30216.50 - 30423.00\n\nFVG alcista: 30684.50 - 30708.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-21T14:06:08.996805-04:00",
+  "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30715.75\nMinimo / maximo: 30216.50 / 30724.50\nBalance 25%-75%: 30343.50 - 30597.50\nEquilibrio: 30470.50\nRango de apertura: 30216.50 - 30423.00\n\nFVG alcista: 30684.50 - 30708.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: Precio demasiado extendido por encima de EMA20.\n\nLectura simulada; confirmar siempre en el grafico."
 }
