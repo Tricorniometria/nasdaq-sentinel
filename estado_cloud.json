@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-22T09:46:15.592935-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR ALCISTA\nPrecio NQ: 30879.25\nEMA20 / EMA50: 30788.88 / 30786.24\nRSI14: 74.71 | ATR14: 25.02\nPuntuacion largo/corto: 3/0\n\nSesion NY: 30763.50 - 30894.25\nBalance 25%-75%: 30796.19 - 30861.56\nEquilibrio: 30828.88\nRango apertura: 30763.50 - 30894.25\nDia anterior: 30216.50 - 30862.75\n\nFVG alcista: 30777.75 - 30864.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 22/09/2026 09:35\nHora Nueva York: 22/09/2026 09:46\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-22T09:51:16.692373-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR ALCISTA\nPrecio NQ: 30903.00\nEMA20 / EMA50: 30800.94 / 30791.33\nRSI14: 77.34 | ATR14: 25.95\nPuntuacion largo/corto: 4/0\n\nSesion NY: 30763.50 - 30913.00\nBalance 25%-75%: 30800.88 - 30875.62\nEquilibrio: 30838.25\nRango apertura: 30763.50 - 30913.00\nDia anterior: 30216.50 - 30862.75\n\nFVG alcista: 30868.50 - 30886.75\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 22/09/2026 09:40\nHora Nueva York: 22/09/2026 09:51\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-22T09:46:17.484155-04:00",
-    "ultima_vela": "2026-09-22T09:35:00-04:00",
+    "fecha_analisis": "2026-09-22T09:51:18.481906-04:00",
+    "ultima_vela": "2026-09-22T09:40:00-04:00",
     "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -42,33 +42,33 @@
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "VIGILAR ALCISTA",
-    "precio": 30879.25,
-    "ema20": 30788.883177168078,
-    "ema50": 30786.235791433624,
-    "rsi": 74.70967741935483,
-    "atr": 25.017857142857142,
-    "puntos_largo": 3,
+    "precio": 30903.0,
+    "ema20": 30800.93625326545,
+    "ema50": 30791.332849977938,
+    "rsi": 77.34104046242774,
+    "atr": 25.946428571428573,
+    "puntos_largo": 4,
     "puntos_corto": 0,
     "niveles": {
-      "maximo_sesion": 30894.25,
+      "maximo_sesion": 30913.0,
       "minimo_sesion": 30763.5,
-      "equilibrio": 30828.875,
-      "zona_descuento": 30796.1875,
-      "zona_premium": 30861.5625,
-      "maximo_apertura": 30894.25,
+      "equilibrio": 30838.25,
+      "zona_descuento": 30800.875,
+      "zona_premium": 30875.625,
+      "maximo_apertura": 30913.0,
       "minimo_apertura": 30763.5,
       "maximo_anterior": 30862.75,
       "minimo_anterior": 30216.5
     },
     "fvg_alcista": [
-      30777.75,
-      30864.25
+      30868.5,
+      30886.75
     ],
     "fvg_bajista": null,
     "plan": null,
     "motivo_plan": "Faltan confirmaciones tecnicas."
   },
-  "ultimo_analisis_correcto": "2026-09-22T09:46:17.484155-04:00",
+  "ultimo_analisis_correcto": "2026-09-22T09:51:18.481906-04:00",
   "ultimo_estado_analizado": "VIGILAR ALCISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30879.25\nMinimo / maximo: 30763.50 / 30894.25\nBalance 25%-75%: 30796.19 - 30861.56\nEquilibrio: 30828.88\nRango de apertura: 30763.50 - 30894.25\n\nFVG alcista: 30777.75 - 30864.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30903.00\nMinimo / maximo: 30763.50 / 30913.00\nBalance 25%-75%: 30800.88 - 30875.62\nEquilibrio: 30838.25\nRango de apertura: 30763.50 - 30913.00\n\nFVG alcista: 30868.50 - 30886.75\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
 }
