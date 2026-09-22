@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-22T10:41:18.486073-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR ALCISTA\nPrecio NQ: 30963.75\nEMA20 / EMA50: 30892.12 / 30841.19\nRSI14: 85.12 | ATR14: 40.48\nPuntuacion largo/corto: 4/0\n\nSesion NY: 30763.50 - 30983.75\nBalance 25%-75%: 30818.56 - 30928.69\nEquilibrio: 30873.62\nRango apertura: 30763.50 - 30945.00\nDia anterior: 30216.50 - 30862.75\n\nFVG alcista: 30868.50 - 30886.75\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 22/09/2026 10:30\nHora Nueva York: 22/09/2026 10:41\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-22T10:46:17.647514-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 30958.25\nEMA20 / EMA50: 30900.49 / 30846.68\nRSI14: 79.82 | ATR14: 43.23\nPuntuacion largo/corto: 5/0\n\nSesion NY: 30763.50 - 30997.50\nBalance 25%-75%: 30822.00 - 30939.00\nEquilibrio: 30880.50\nRango apertura: 30763.50 - 30945.00\nDia anterior: 30216.50 - 30862.75\n\nFVG alcista: 30868.50 - 30886.75\nFVG bajista: ninguno activo\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 22/09/2026 10:35\nHora Nueva York: 22/09/2026 10:46\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-22T10:41:19.609812-04:00",
-    "ultima_vela": "2026-09-22T10:30:00-04:00",
+    "fecha_analisis": "2026-09-22T10:46:19.348856-04:00",
+    "ultima_vela": "2026-09-22T10:35:00-04:00",
     "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,20 +41,20 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "VIGILAR ALCISTA",
-    "precio": 30963.75,
-    "ema20": 30892.11889690772,
-    "ema50": 30841.186025665836,
-    "rsi": 85.12173128944995,
-    "atr": 40.482142857142854,
-    "puntos_largo": 4,
+    "estado": "SESGO ALCISTA - ESPERAR",
+    "precio": 30958.25,
+    "ema20": 30900.485124413106,
+    "ema50": 30846.68103734676,
+    "rsi": 79.81580966999232,
+    "atr": 43.232142857142854,
+    "puntos_largo": 5,
     "puntos_corto": 0,
     "niveles": {
-      "maximo_sesion": 30983.75,
+      "maximo_sesion": 30997.5,
       "minimo_sesion": 30763.5,
-      "equilibrio": 30873.625,
-      "zona_descuento": 30818.5625,
-      "zona_premium": 30928.6875,
+      "equilibrio": 30880.5,
+      "zona_descuento": 30822.0,
+      "zona_premium": 30939.0,
       "maximo_apertura": 30945.0,
       "minimo_apertura": 30763.5,
       "maximo_anterior": 30862.75,
@@ -66,9 +66,9 @@
     ],
     "fvg_bajista": null,
     "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "motivo_plan": "RSI en sobrecompra; no se persigue el movimiento alcista."
   },
-  "ultimo_analisis_correcto": "2026-09-22T10:41:19.609812-04:00",
-  "ultimo_estado_analizado": "VIGILAR ALCISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30963.75\nMinimo / maximo: 30763.50 / 30983.75\nBalance 25%-75%: 30818.56 - 30928.69\nEquilibrio: 30873.62\nRango de apertura: 30763.50 - 30945.00\n\nFVG alcista: 30868.50 - 30886.75\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-22T10:46:19.348856-04:00",
+  "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30958.25\nMinimo / maximo: 30763.50 / 30997.50\nBalance 25%-75%: 30822.00 - 30939.00\nEquilibrio: 30880.50\nRango de apertura: 30763.50 - 30945.00\n\nFVG alcista: 30868.50 - 30886.75\nFVG bajista: ninguno activo\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
 }
