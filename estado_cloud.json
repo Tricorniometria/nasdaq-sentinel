@@ -26,27 +26,27 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-23T12:51:03.612962-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 30716.75\nEMA20 / EMA50: 30750.82 / 30805.33\nRSI14: 32.62 | ATR14: 25.14\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30642.75 - 31013.00\nBalance 25%-75%: 30735.31 - 30920.44\nEquilibrio: 30827.88\nRango apertura: 30832.75 - 31013.00\nDia anterior: 30763.50 - 31065.50\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.1 min)\n\nUltima vela NY: 23/09/2026 12:40\nHora Nueva York: 23/09/2026 12:51\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-23T12:56:10.010574-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 30702.25\nEMA20 / EMA50: 30744.34 / 30800.48\nRSI14: 31.97 | ATR14: 26.41\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30642.75 - 31013.00\nBalance 25%-75%: 30735.31 - 30920.44\nEquilibrio: 30827.88\nRango apertura: 30832.75 - 31013.00\nDia anterior: 30763.50 - 31065.50\n\nFVG alcista: ninguno activo\nFVG bajista: 30712.00 - 30725.00\n\nPLAN SIMULADO CORTO\nEntrada: 30712.00 - 30725.00\nStop: 30744.81\nObjetivo 1: 30692.19\nObjetivo 2: 30665.88\n\n🟢 Calidad: DATOS RECIENTES (11.2 min)\n\nUltima vela NY: 23/09/2026 12:45\nHora Nueva York: 23/09/2026 12:56\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-23T12:51:04.634390-04:00",
-    "ultima_vela": "2026-09-23T12:40:00-04:00",
-    "antiguedad_minutos": 11.1,
+    "fecha_analisis": "2026-09-23T12:56:11.595671-04:00",
+    "ultima_vela": "2026-09-23T12:45:00-04:00",
+    "antiguedad_minutos": 11.2,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.1,
+      "antiguedad_minutos": 11.2,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "SESGO BAJISTA - ESPERAR",
-    "precio": 30716.75,
-    "ema20": 30750.815193791153,
-    "ema50": 30805.329056382932,
-    "rsi": 32.62295081967213,
-    "atr": 25.142857142857142,
+    "estado": "POSIBLE CORTO",
+    "precio": 30702.25,
+    "ema20": 30744.337329529862,
+    "ema50": 30800.47666739752,
+    "rsi": 31.97183098591549,
+    "atr": 26.410714285714285,
     "puntos_largo": 0,
     "puntos_corto": 5,
     "niveles": {
@@ -61,11 +61,21 @@
       "minimo_anterior": 30763.5
     },
     "fvg_alcista": null,
-    "fvg_bajista": null,
-    "plan": null,
-    "motivo_plan": "El movimiento bajista ya ha superado el primer objetivo."
+    "fvg_bajista": [
+      30712.0,
+      30725.0
+    ],
+    "plan": {
+      "direccion": "CORTO",
+      "entrada_baja": 30712.0,
+      "entrada_alta": 30725.0,
+      "stop": 30744.808035714286,
+      "objetivo_1": 30692.191964285714,
+      "objetivo_2": 30665.883928571428
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-09-23T12:51:04.634390-04:00",
-  "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30716.75\nMinimo / maximo: 30642.75 / 31013.00\nBalance 25%-75%: 30735.31 - 30920.44\nEquilibrio: 30827.88\nRango de apertura: 30832.75 - 31013.00\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-23T12:56:11.595671-04:00",
+  "ultimo_estado_analizado": "POSIBLE CORTO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30702.25\nMinimo / maximo: 30642.75 / 31013.00\nBalance 25%-75%: 30735.31 - 30920.44\nEquilibrio: 30827.88\nRango de apertura: 30832.75 - 31013.00\n\nFVG alcista: ninguno activo\nFVG bajista: 30712.00 - 30725.00\n\nPlan CORTO: 30712.00 - 30725.00\nStop: 30744.81\nObjetivos: 30692.19 / 30665.88\n\nLectura simulada; confirmar siempre en el grafico."
 }
