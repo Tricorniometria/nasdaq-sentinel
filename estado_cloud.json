@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-23T10:06:18.506972-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR BAJISTA\nPrecio NQ: 30841.25\nEMA20 / EMA50: 30927.02 / 30959.36\nRSI14: 27.60 | ATR14: 31.32\nPuntuacion largo/corto: 0/4\n\nSesion NY: 30832.75 - 31013.00\nBalance 25%-75%: 30877.81 - 30967.94\nEquilibrio: 30922.88\nRango apertura: 30832.75 - 31013.00\nDia anterior: 30763.50 - 31065.50\n\nFVG alcista: ninguno activo\nFVG bajista: 30854.00 - 30860.75\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 23/09/2026 09:55\nHora Nueva York: 23/09/2026 10:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-23T10:11:14.477903-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 30865.25\nEMA20 / EMA50: 30921.55 / 30955.85\nRSI14: 33.27 | ATR14: 33.34\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30832.75 - 31013.00\nBalance 25%-75%: 30877.81 - 30967.94\nEquilibrio: 30922.88\nRango apertura: 30832.75 - 31013.00\nDia anterior: 30763.50 - 31065.50\n\nFVG alcista: ninguno activo\nFVG bajista: 30888.25 - 30904.75\n\nPLAN SIMULADO CORTO\nEntrada: 30888.25 - 30904.75\nStop: 30929.75\nObjetivo 1: 30863.25\nObjetivo 2: 30829.99\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 23/09/2026 10:00\nHora Nueva York: 23/09/2026 10:11\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-23T10:06:19.929301-04:00",
-    "ultima_vela": "2026-09-23T09:55:00-04:00",
+    "fecha_analisis": "2026-09-23T10:11:15.534026-04:00",
+    "ultima_vela": "2026-09-23T10:00:00-04:00",
     "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,14 +41,14 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "VIGILAR BAJISTA",
-    "precio": 30841.25,
-    "ema20": 30927.020711242552,
-    "ema50": 30959.357019960873,
-    "rsi": 27.60314341846758,
-    "atr": 31.321428571428573,
+    "estado": "POSIBLE CORTO",
+    "precio": 30865.25,
+    "ema20": 30921.547083414465,
+    "ema50": 30955.845518216924,
+    "rsi": 33.27137546468401,
+    "atr": 33.339285714285715,
     "puntos_largo": 0,
-    "puntos_corto": 4,
+    "puntos_corto": 5,
     "niveles": {
       "maximo_sesion": 31013.0,
       "minimo_sesion": 30832.75,
@@ -62,13 +62,20 @@
     },
     "fvg_alcista": null,
     "fvg_bajista": [
-      30854.0,
-      30860.75
+      30888.25,
+      30904.75
     ],
-    "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "plan": {
+      "direccion": "CORTO",
+      "entrada_baja": 30888.25,
+      "entrada_alta": 30904.75,
+      "stop": 30929.754464285714,
+      "objetivo_1": 30863.245535714286,
+      "objetivo_2": 30829.991071428572
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-09-23T10:06:19.929301-04:00",
-  "ultimo_estado_analizado": "VIGILAR BAJISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30841.25\nMinimo / maximo: 30832.75 / 31013.00\nBalance 25%-75%: 30877.81 - 30967.94\nEquilibrio: 30922.88\nRango de apertura: 30832.75 - 31013.00\n\nFVG alcista: ninguno activo\nFVG bajista: 30854.00 - 30860.75\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-23T10:11:15.534026-04:00",
+  "ultimo_estado_analizado": "POSIBLE CORTO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30865.25\nMinimo / maximo: 30832.75 / 31013.00\nBalance 25%-75%: 30877.81 - 30967.94\nEquilibrio: 30922.88\nRango de apertura: 30832.75 - 31013.00\n\nFVG alcista: ninguno activo\nFVG bajista: 30888.25 - 30904.75\n\nPlan CORTO: 30888.25 - 30904.75\nStop: 30929.75\nObjetivos: 30863.25 / 30829.99\n\nLectura simulada; confirmar siempre en el grafico."
 }
