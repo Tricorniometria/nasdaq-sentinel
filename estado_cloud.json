@@ -26,27 +26,27 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-29T13:02:13.596559-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: DATOS EN OBSERVACION\nPrecio NQ: 30540.00\nEMA20 / EMA50: 30574.70 / 30600.33\nRSI14: 43.83 | ATR14: 36.38\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30504.50 - 30725.50\nBalance 25%-75%: 30559.75 - 30670.25\nEquilibrio: 30615.00\nRango apertura: 30545.50 - 30725.50\nDia anterior: 30356.75 - 30759.25\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟡 Calidad: DATOS CON RETRASO (12.3 min)\n⚠️ Nuevas configuraciones bloqueadas por seguridad.\n\nUltima vela NY: 29/09/2026 12:50\nHora Nueva York: 29/09/2026 13:02\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-29T13:06:40.032825-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 30518.25\nEMA20 / EMA50: 30569.26 / 30597.09\nRSI14: 36.94 | ATR14: 34.41\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30504.50 - 30725.50\nBalance 25%-75%: 30559.75 - 30670.25\nEquilibrio: 30615.00\nRango apertura: 30545.50 - 30725.50\nDia anterior: 30356.75 - 30759.25\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.7 min)\n\nUltima vela NY: 29/09/2026 12:55\nHora Nueva York: 29/09/2026 13:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-29T13:02:15.007936-04:00",
-    "ultima_vela": "2026-09-29T12:50:00-04:00",
-    "antiguedad_minutos": 12.3,
+    "fecha_analisis": "2026-09-29T13:06:41.124510-04:00",
+    "ultima_vela": "2026-09-29T12:55:00-04:00",
+    "antiguedad_minutos": 11.7,
     "calidad_datos": {
-      "codigo": "AMARILLO",
-      "semaforo": "🟡",
-      "etiqueta": "DATOS CON RETRASO",
-      "antiguedad_minutos": 12.3,
-      "operativa_permitida": false,
-      "detalle": "Solo observacion; se bloquean nuevas configuraciones."
+      "codigo": "VERDE",
+      "semaforo": "🟢",
+      "etiqueta": "DATOS RECIENTES",
+      "antiguedad_minutos": 11.7,
+      "operativa_permitida": true,
+      "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "DATOS EN OBSERVACION",
-    "precio": 30540.0,
-    "ema20": 30574.69732189606,
-    "ema50": 30600.33234881693,
-    "rsi": 43.83223684210527,
-    "atr": 36.375,
+    "estado": "SESGO BAJISTA - ESPERAR",
+    "precio": 30518.25,
+    "ema20": 30569.25676062705,
+    "ema50": 30597.085174814885,
+    "rsi": 36.936936936936945,
+    "atr": 34.410714285714285,
     "puntos_largo": 0,
     "puntos_corto": 5,
     "niveles": {
@@ -63,9 +63,9 @@
     "fvg_alcista": null,
     "fvg_bajista": null,
     "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "motivo_plan": "El movimiento bajista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-09-29T13:02:15.007936-04:00",
-  "ultimo_estado_analizado": "DATOS EN OBSERVACION",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30540.00\nMinimo / maximo: 30504.50 / 30725.50\nBalance 25%-75%: 30559.75 - 30670.25\nEquilibrio: 30615.00\nRango de apertura: 30545.50 - 30725.50\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-29T13:06:41.124510-04:00",
+  "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30518.25\nMinimo / maximo: 30504.50 / 30725.50\nBalance 25%-75%: 30559.75 - 30670.25\nEquilibrio: 30615.00\nRango de apertura: 30545.50 - 30725.50\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
