@@ -26,28 +26,28 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-29T11:51:50.550434-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 30571.50\nEMA20 / EMA50: 30616.88 / 30627.43\nRSI14: 33.73 | ATR14: 44.39\nPuntuacion largo/corto: 1/5\n\nSesion NY: 30531.25 - 30725.50\nBalance 25%-75%: 30579.81 - 30676.94\nEquilibrio: 30628.38\nRango apertura: 30545.50 - 30725.50\nDia anterior: 30356.75 - 30759.25\n\nFVG alcista: 30567.00 - 30585.25\nFVG bajista: 30641.25 - 30655.50\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.9 min)\n\nUltima vela NY: 29/09/2026 11:40\nHora Nueva York: 29/09/2026 11:51\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-29T11:56:46.964939-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 30564.75\nEMA20 / EMA50: 30612.43 / 30625.20\nRSI14: 33.64 | ATR14: 44.05\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30531.25 - 30725.50\nBalance 25%-75%: 30579.81 - 30676.94\nEquilibrio: 30628.38\nRango apertura: 30545.50 - 30725.50\nDia anterior: 30356.75 - 30759.25\n\nFVG alcista: ninguno activo\nFVG bajista: 30641.25 - 30655.50\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.8 min)\n\nUltima vela NY: 29/09/2026 11:45\nHora Nueva York: 29/09/2026 11:56\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-29T11:51:51.611934-04:00",
-    "ultima_vela": "2026-09-29T11:40:00-04:00",
-    "antiguedad_minutos": 11.9,
+    "fecha_analisis": "2026-09-29T11:56:48.471235-04:00",
+    "ultima_vela": "2026-09-29T11:45:00-04:00",
+    "antiguedad_minutos": 11.8,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.9,
+      "antiguedad_minutos": 11.8,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO BAJISTA - ESPERAR",
-    "precio": 30571.5,
-    "ema20": 30616.879462624158,
-    "ema50": 30627.42863698805,
-    "rsi": 33.72905027932961,
-    "atr": 44.392857142857146,
-    "puntos_largo": 1,
+    "precio": 30564.75,
+    "ema20": 30612.431758700768,
+    "ema50": 30625.196718121166,
+    "rsi": 33.63509749303621,
+    "atr": 44.05357142857143,
+    "puntos_largo": 0,
     "puntos_corto": 5,
     "niveles": {
       "maximo_sesion": 30725.5,
@@ -60,10 +60,7 @@
       "maximo_anterior": 30759.25,
       "minimo_anterior": 30356.75
     },
-    "fvg_alcista": [
-      30567.0,
-      30585.25
-    ],
+    "fvg_alcista": null,
     "fvg_bajista": [
       30641.25,
       30655.5
@@ -71,7 +68,7 @@
     "plan": null,
     "motivo_plan": "El movimiento bajista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-09-29T11:51:51.611934-04:00",
+  "ultimo_analisis_correcto": "2026-09-29T11:56:48.471235-04:00",
   "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30571.50\nMinimo / maximo: 30531.25 / 30725.50\nBalance 25%-75%: 30579.81 - 30676.94\nEquilibrio: 30628.38\nRango de apertura: 30545.50 - 30725.50\n\nFVG alcista: 30567.00 - 30585.25\nFVG bajista: 30641.25 - 30655.50\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30564.75\nMinimo / maximo: 30531.25 / 30725.50\nBalance 25%-75%: 30579.81 - 30676.94\nEquilibrio: 30628.38\nRango de apertura: 30545.50 - 30725.50\n\nFVG alcista: ninguno activo\nFVG bajista: 30641.25 - 30655.50\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
