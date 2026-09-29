@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-09-29T11:26:43.130332-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SIN CONFIGURACION\nPrecio NQ: 30639.50\nEMA20 / EMA50: 30647.31 / 30640.68\nRSI14: 54.76 | ATR14: 45.45\nPuntuacion largo/corto: 2/2\n\nSesion NY: 30545.50 - 30725.50\nBalance 25%-75%: 30590.50 - 30680.50\nEquilibrio: 30635.50\nRango apertura: 30545.50 - 30725.50\nDia anterior: 30356.75 - 30759.25\n\nFVG alcista: ninguno activo\nFVG bajista: 30641.25 - 30655.50\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.8 min)\n\nUltima vela NY: 29/09/2026 11:15\nHora Nueva York: 29/09/2026 11:26\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-09-29T11:31:45.206353-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 30579.50\nEMA20 / EMA50: 30636.04 / 30636.18\nRSI14: 42.49 | ATR14: 46.34\nPuntuacion largo/corto: 0/5\n\nSesion NY: 30545.50 - 30725.50\nBalance 25%-75%: 30590.50 - 30680.50\nEquilibrio: 30635.50\nRango apertura: 30545.50 - 30725.50\nDia anterior: 30356.75 - 30759.25\n\nFVG alcista: ninguno activo\nFVG bajista: 30591.00 - 30593.50\n\nPLAN SIMULADO CORTO\nEntrada: 30591.00 - 30593.50\nStop: 30628.25\nObjetivo 1: 30556.25\nObjetivo 2: 30520.24\n\n🟢 Calidad: DATOS RECIENTES (11.8 min)\n\nUltima vela NY: 29/09/2026 11:20\nHora Nueva York: 29/09/2026 11:31\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-09-29T11:26:45.952225-04:00",
-    "ultima_vela": "2026-09-29T11:15:00-04:00",
+    "fecha_analisis": "2026-09-29T11:31:46.882527-04:00",
+    "ultima_vela": "2026-09-29T11:20:00-04:00",
     "antiguedad_minutos": 11.8,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,14 +41,14 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "SIN CONFIGURACION",
-    "precio": 30639.5,
-    "ema20": 30647.305420856763,
-    "ema50": 30640.676351953327,
-    "rsi": 54.76402493321461,
-    "atr": 45.44642857142857,
-    "puntos_largo": 2,
-    "puntos_corto": 2,
+    "estado": "POSIBLE CORTO",
+    "precio": 30579.5,
+    "ema20": 30636.043906852265,
+    "ema50": 30636.17674107319,
+    "rsi": 42.490272373540854,
+    "atr": 46.339285714285715,
+    "puntos_largo": 0,
+    "puntos_corto": 5,
     "niveles": {
       "maximo_sesion": 30725.5,
       "minimo_sesion": 30545.5,
@@ -62,13 +62,20 @@
     },
     "fvg_alcista": null,
     "fvg_bajista": [
-      30641.25,
-      30655.5
+      30591.0,
+      30593.5
     ],
-    "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "plan": {
+      "direccion": "CORTO",
+      "entrada_baja": 30591.0,
+      "entrada_alta": 30593.5,
+      "stop": 30628.254464285714,
+      "objetivo_1": 30556.245535714286,
+      "objetivo_2": 30520.241071428572
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-09-29T11:26:45.952225-04:00",
-  "ultimo_estado_analizado": "SIN CONFIGURACION",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30639.50\nMinimo / maximo: 30545.50 / 30725.50\nBalance 25%-75%: 30590.50 - 30680.50\nEquilibrio: 30635.50\nRango de apertura: 30545.50 - 30725.50\n\nFVG alcista: ninguno activo\nFVG bajista: 30641.25 - 30655.50\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-09-29T11:31:46.882527-04:00",
+  "ultimo_estado_analizado": "POSIBLE CORTO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30579.50\nMinimo / maximo: 30545.50 / 30725.50\nBalance 25%-75%: 30590.50 - 30680.50\nEquilibrio: 30635.50\nRango de apertura: 30545.50 - 30725.50\n\nFVG alcista: ninguno activo\nFVG bajista: 30591.00 - 30593.50\n\nPlan CORTO: 30591.00 - 30593.50\nStop: 30628.25\nObjetivos: 30556.25 / 30520.24\n\nLectura simulada; confirmar siempre en el grafico."
 }
