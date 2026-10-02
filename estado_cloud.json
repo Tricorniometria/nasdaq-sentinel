@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-02T10:20:49.219643-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 31229.50\nEMA20 / EMA50: 31154.45 / 31081.98\nRSI14: 53.21 | ATR14: 53.23\nPuntuacion largo/corto: 6/1\n\nSesion NY: 31056.25 - 31259.50\nBalance 25%-75%: 31107.06 - 31208.69\nEquilibrio: 31157.88\nRango apertura: 31056.25 - 31201.50\nDia anterior: 30529.25 - 30883.50\n\nFVG alcista: 31195.25 - 31208.50\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 31195.25 - 31208.50\nStop: 31155.33\nObjetivo 1: 31248.42\nObjetivo 2: 31294.97\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 02/10/2026 10:10\nHora Nueva York: 02/10/2026 10:20\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-02T10:25:47.878350-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 31234.50\nEMA20 / EMA50: 31161.82 / 31087.85\nRSI14: 58.16 | ATR14: 52.14\nPuntuacion largo/corto: 5/0\n\nSesion NY: 31056.25 - 31259.50\nBalance 25%-75%: 31107.06 - 31208.69\nEquilibrio: 31157.88\nRango apertura: 31056.25 - 31201.50\nDia anterior: 30529.25 - 30883.50\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento alcista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 02/10/2026 10:15\nHora Nueva York: 02/10/2026 10:25\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-02T10:20:50.774441-04:00",
-    "ultima_vela": "2026-10-02T10:10:00-04:00",
+    "fecha_analisis": "2026-10-02T10:25:48.917676-04:00",
+    "ultima_vela": "2026-10-02T10:15:00-04:00",
     "antiguedad_minutos": 10.8,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,14 +41,14 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE LARGO",
-    "precio": 31229.5,
-    "ema20": 31154.45185075469,
-    "ema50": 31081.97818604047,
-    "rsi": 53.205128205128204,
-    "atr": 53.232142857142854,
-    "puntos_largo": 6,
-    "puntos_corto": 1,
+    "estado": "SESGO ALCISTA - ESPERAR",
+    "precio": 31234.5,
+    "ema20": 31161.81698061479,
+    "ema50": 31087.84640019805,
+    "rsi": 58.16326530612245,
+    "atr": 52.142857142857146,
+    "puntos_largo": 5,
+    "puntos_corto": 0,
     "niveles": {
       "maximo_sesion": 31259.5,
       "minimo_sesion": 31056.25,
@@ -60,22 +60,12 @@
       "maximo_anterior": 30883.5,
       "minimo_anterior": 30529.25
     },
-    "fvg_alcista": [
-      31195.25,
-      31208.5
-    ],
+    "fvg_alcista": null,
     "fvg_bajista": null,
-    "plan": {
-      "direccion": "LARGO",
-      "entrada_baja": 31195.25,
-      "entrada_alta": 31208.5,
-      "stop": 31155.32589285714,
-      "objetivo_1": 31248.42410714286,
-      "objetivo_2": 31294.973214285717
-    },
-    "motivo_plan": "Plan validado."
+    "plan": null,
+    "motivo_plan": "El movimiento alcista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-10-02T10:20:50.774441-04:00",
-  "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31229.50\nMinimo / maximo: 31056.25 / 31259.50\nBalance 25%-75%: 31107.06 - 31208.69\nEquilibrio: 31157.88\nRango de apertura: 31056.25 - 31201.50\n\nFVG alcista: 31195.25 - 31208.50\nFVG bajista: ninguno activo\n\nPlan LARGO: 31195.25 - 31208.50\nStop: 31155.33\nObjetivos: 31248.42 / 31294.97\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-10-02T10:25:48.917676-04:00",
+  "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31234.50\nMinimo / maximo: 31056.25 / 31259.50\nBalance 25%-75%: 31107.06 - 31208.69\nEquilibrio: 31157.88\nRango de apertura: 31056.25 - 31201.50\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento alcista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
