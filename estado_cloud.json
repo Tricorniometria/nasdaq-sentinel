@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-05T13:05:40.200262-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 31262.00\nEMA20 / EMA50: 31237.66 / 31189.56\nRSI14: 57.63 | ATR14: 17.07\nPuntuacion largo/corto: 6/0\n\nSesion NY: 31044.25 - 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango apertura: 31044.25 - 31229.50\nDia anterior: no disponible\n\nFVG alcista: 31245.50 - 31247.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento alcista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (10.7 min)\n\nUltima vela NY: 05/10/2026 12:55\nHora Nueva York: 05/10/2026 13:05\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-05T13:10:36.271266-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 31247.25\nEMA20 / EMA50: 31237.41 / 31191.31\nRSI14: 51.86 | ATR14: 17.59\nPuntuacion largo/corto: 6/2\n\nSesion NY: 31044.25 - 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango apertura: 31044.25 - 31229.50\nDia anterior: no disponible\n\nFVG alcista: 31216.75 - 31232.25\nFVG bajista: 31252.00 - 31258.75\n\nSin entrada simulada: El movimiento alcista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (10.6 min)\n\nUltima vela NY: 05/10/2026 13:00\nHora Nueva York: 05/10/2026 13:10\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-05T13:05:41.510648-04:00",
-    "ultima_vela": "2026-10-05T12:55:00-04:00",
-    "antiguedad_minutos": 10.7,
+    "fecha_analisis": "2026-10-05T13:10:37.310236-04:00",
+    "ultima_vela": "2026-10-05T13:00:00-04:00",
+    "antiguedad_minutos": 10.6,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 10.7,
+      "antiguedad_minutos": 10.6,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO ALCISTA - ESPERAR",
-    "precio": 31262.0,
-    "ema20": 31237.663136668503,
-    "ema50": 31189.559162980346,
-    "rsi": 57.62711864406779,
-    "atr": 17.071428571428573,
+    "precio": 31247.25,
+    "ema20": 31237.412905965382,
+    "ema50": 31191.31289822679,
+    "rsi": 51.86440677966102,
+    "atr": 17.589285714285715,
     "puntos_largo": 6,
-    "puntos_corto": 0,
+    "puntos_corto": 2,
     "niveles": {
       "maximo_sesion": 31274.75,
       "minimo_sesion": 31044.25,
@@ -61,14 +61,17 @@
       "minimo_anterior": null
     },
     "fvg_alcista": [
-      31245.5,
-      31247.25
+      31216.75,
+      31232.25
     ],
-    "fvg_bajista": null,
+    "fvg_bajista": [
+      31252.0,
+      31258.75
+    ],
     "plan": null,
     "motivo_plan": "El movimiento alcista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-10-05T13:05:41.510648-04:00",
+  "ultimo_analisis_correcto": "2026-10-05T13:10:37.310236-04:00",
   "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31262.00\nMinimo / maximo: 31044.25 / 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango de apertura: 31044.25 - 31229.50\n\nFVG alcista: 31245.50 - 31247.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento alcista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31247.25\nMinimo / maximo: 31044.25 / 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango de apertura: 31044.25 - 31229.50\n\nFVG alcista: 31216.75 - 31232.25\nFVG bajista: 31252.00 - 31258.75\n\nSin plan de entrada: El movimiento alcista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
