@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-05T13:20:49.116269-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 31261.00\nEMA20 / EMA50: 31240.49 / 31196.13\nRSI14: 62.44 | ATR14: 18.00\nPuntuacion largo/corto: 5/0\n\nSesion NY: 31044.25 - 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango apertura: 31044.25 - 31229.50\nDia anterior: no disponible\n\nFVG alcista: 31216.75 - 31232.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento alcista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 05/10/2026 13:10\nHora Nueva York: 05/10/2026 13:20\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-05T13:25:44.926310-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 31269.50\nEMA20 / EMA50: 31243.60 / 31199.16\nRSI14: 62.79 | ATR14: 18.11\nPuntuacion largo/corto: 6/0\n\nSesion NY: 31044.25 - 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango apertura: 31044.25 - 31229.50\nDia anterior: no disponible\n\nFVG alcista: 31258.50 - 31263.75\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 31258.50 - 31263.75\nStop: 31244.92\nObjetivo 1: 31277.33\nObjetivo 2: 31293.54\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 05/10/2026 13:15\nHora Nueva York: 05/10/2026 13:25\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-05T13:20:50.218732-04:00",
-    "ultima_vela": "2026-10-05T13:10:00-04:00",
+    "fecha_analisis": "2026-10-05T13:25:46.629162-04:00",
+    "ultima_vela": "2026-10-05T13:15:00-04:00",
     "antiguedad_minutos": 10.8,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,13 +41,13 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "SESGO ALCISTA - ESPERAR",
-    "precio": 31261.0,
-    "ema20": 31240.48847210059,
-    "ema50": 31196.12782565355,
-    "rsi": 62.4405705229794,
-    "atr": 18.0,
-    "puntos_largo": 5,
+    "estado": "POSIBLE LARGO",
+    "precio": 31269.5,
+    "ema20": 31243.59614595949,
+    "ema50": 31199.1558770889,
+    "rsi": 62.79434850863423,
+    "atr": 18.107142857142858,
+    "puntos_largo": 6,
     "puntos_corto": 0,
     "niveles": {
       "maximo_sesion": 31274.75,
@@ -61,14 +61,21 @@
       "minimo_anterior": null
     },
     "fvg_alcista": [
-      31216.75,
-      31232.25
+      31258.5,
+      31263.75
     ],
     "fvg_bajista": null,
-    "plan": null,
-    "motivo_plan": "El movimiento alcista ya ha superado el primer objetivo."
+    "plan": {
+      "direccion": "LARGO",
+      "entrada_baja": 31258.5,
+      "entrada_alta": 31263.75,
+      "stop": 31244.91964285714,
+      "objetivo_1": 31277.33035714286,
+      "objetivo_2": 31293.535714285717
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-10-05T13:20:50.218732-04:00",
-  "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31261.00\nMinimo / maximo: 31044.25 / 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango de apertura: 31044.25 - 31229.50\n\nFVG alcista: 31216.75 - 31232.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento alcista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-10-05T13:25:46.629162-04:00",
+  "ultimo_estado_analizado": "POSIBLE LARGO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31269.50\nMinimo / maximo: 31044.25 / 31274.75\nBalance 25%-75%: 31101.88 - 31217.12\nEquilibrio: 31159.50\nRango de apertura: 31044.25 - 31229.50\n\nFVG alcista: 31258.50 - 31263.75\nFVG bajista: ninguno activo\n\nPlan LARGO: 31258.50 - 31263.75\nStop: 31244.92\nObjetivos: 31277.33 / 31293.54\n\nLectura simulada; confirmar siempre en el grafico."
 }
