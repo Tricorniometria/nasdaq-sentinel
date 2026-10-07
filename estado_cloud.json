@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-07T11:50:44.998042-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 31334.75\nEMA20 / EMA50: 31272.23 / 31270.20\nRSI14: 72.46 | ATR14: 30.02\nPuntuacion largo/corto: 5/0\n\nSesion NY: 31143.00 - 31338.00\nBalance 25%-75%: 31191.75 - 31289.25\nEquilibrio: 31240.50\nRango apertura: 31143.00 - 31275.50\nDia anterior: 31457.75 - 31616.50\n\nFVG alcista: 31296.25 - 31324.75\nFVG bajista: ninguno activo\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 07/10/2026 11:40\nHora Nueva York: 07/10/2026 11:50\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-07T11:55:44.166147-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 31348.50\nEMA20 / EMA50: 31280.45 / 31273.67\nRSI14: 70.93 | ATR14: 29.39\nPuntuacion largo/corto: 5/0\n\nSesion NY: 31143.00 - 31353.00\nBalance 25%-75%: 31195.50 - 31300.50\nEquilibrio: 31248.00\nRango apertura: 31143.00 - 31275.50\nDia anterior: 31457.75 - 31616.50\n\nFVG alcista: 31334.75 - 31342.75\nFVG bajista: ninguno activo\n\nSin entrada simulada: Precio demasiado extendido por encima de EMA20.\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 07/10/2026 11:45\nHora Nueva York: 07/10/2026 11:55\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-07T11:50:46.646551-04:00",
-    "ultima_vela": "2026-10-07T11:40:00-04:00",
+    "fecha_analisis": "2026-10-07T11:55:45.234160-04:00",
+    "ultima_vela": "2026-10-07T11:45:00-04:00",
     "antiguedad_minutos": 10.8,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -42,33 +42,33 @@
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO ALCISTA - ESPERAR",
-    "precio": 31334.75,
-    "ema20": 31272.231899049362,
-    "ema50": 31270.195058634443,
-    "rsi": 72.45862884160756,
-    "atr": 30.017857142857142,
+    "precio": 31348.5,
+    "ema20": 31280.44673074796,
+    "ema50": 31273.671220454657,
+    "rsi": 70.93167701863354,
+    "atr": 29.392857142857142,
     "puntos_largo": 5,
     "puntos_corto": 0,
     "niveles": {
-      "maximo_sesion": 31338.0,
+      "maximo_sesion": 31353.0,
       "minimo_sesion": 31143.0,
-      "equilibrio": 31240.5,
-      "zona_descuento": 31191.75,
-      "zona_premium": 31289.25,
+      "equilibrio": 31248.0,
+      "zona_descuento": 31195.5,
+      "zona_premium": 31300.5,
       "maximo_apertura": 31275.5,
       "minimo_apertura": 31143.0,
       "maximo_anterior": 31616.5,
       "minimo_anterior": 31457.75
     },
     "fvg_alcista": [
-      31296.25,
-      31324.75
+      31334.75,
+      31342.75
     ],
     "fvg_bajista": null,
     "plan": null,
-    "motivo_plan": "RSI en sobrecompra; no se persigue el movimiento alcista."
+    "motivo_plan": "Precio demasiado extendido por encima de EMA20."
   },
-  "ultimo_analisis_correcto": "2026-10-07T11:50:46.646551-04:00",
+  "ultimo_analisis_correcto": "2026-10-07T11:55:45.234160-04:00",
   "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31334.75\nMinimo / maximo: 31143.00 / 31338.00\nBalance 25%-75%: 31191.75 - 31289.25\nEquilibrio: 31240.50\nRango de apertura: 31143.00 - 31275.50\n\nFVG alcista: 31296.25 - 31324.75\nFVG bajista: ninguno activo\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31348.50\nMinimo / maximo: 31143.00 / 31353.00\nBalance 25%-75%: 31195.50 - 31300.50\nEquilibrio: 31248.00\nRango de apertura: 31143.00 - 31275.50\n\nFVG alcista: 31334.75 - 31342.75\nFVG bajista: ninguno activo\n\nSin plan de entrada: Precio demasiado extendido por encima de EMA20.\n\nLectura simulada; confirmar siempre en el grafico."
 }
