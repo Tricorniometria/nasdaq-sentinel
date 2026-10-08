@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-08T13:21:14.308503-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR BAJISTA\nPrecio NQ: 30923.50\nEMA20 / EMA50: 31110.41 / 31174.01\nRSI14: 20.60 | ATR14: 60.88\nPuntuacion largo/corto: 0/4\n\nSesion NY: 30908.50 - 31369.75\nBalance 25%-75%: 31023.81 - 31254.44\nEquilibrio: 31139.12\nRango apertura: 31156.25 - 31275.50\nDia anterior: 31143.00 - 31422.25\n\nFVG alcista: ninguno activo\nFVG bajista: 31037.75 - 31069.25\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 08/10/2026 13:10\nHora Nueva York: 08/10/2026 13:21\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-08T13:25:52.930036-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 31003.25\nEMA20 / EMA50: 31107.25 / 31170.39\nRSI14: 27.70 | ATR14: 63.86\nPuntuacion largo/corto: 1/5\n\nSesion NY: 30908.50 - 31369.75\nBalance 25%-75%: 31023.81 - 31254.44\nEquilibrio: 31139.12\nRango apertura: 31156.25 - 31275.50\nDia anterior: 31143.00 - 31422.25\n\nFVG alcista: 30965.75 - 30987.00\nFVG bajista: 31037.75 - 31069.25\n\nSin entrada simulada: RSI en sobreventa; no se persigue el movimiento bajista.\n\n🟢 Calidad: DATOS RECIENTES (10.9 min)\n\nUltima vela NY: 08/10/2026 13:15\nHora Nueva York: 08/10/2026 13:25\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-08T13:21:15.356242-04:00",
-    "ultima_vela": "2026-10-08T13:10:00-04:00",
-    "antiguedad_minutos": 11.3,
+    "fecha_analisis": "2026-10-08T13:25:54.037293-04:00",
+    "ultima_vela": "2026-10-08T13:15:00-04:00",
+    "antiguedad_minutos": 10.9,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.3,
+      "antiguedad_minutos": 10.9,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "VIGILAR BAJISTA",
-    "precio": 30923.5,
-    "ema20": 31110.408347596163,
-    "ema50": 31174.006828990245,
-    "rsi": 20.600353148911125,
-    "atr": 60.875,
-    "puntos_largo": 0,
-    "puntos_corto": 4,
+    "estado": "SESGO BAJISTA - ESPERAR",
+    "precio": 31003.25,
+    "ema20": 31107.24700836932,
+    "ema50": 31170.390644231687,
+    "rsi": 27.70463651974815,
+    "atr": 63.857142857142854,
+    "puntos_largo": 1,
+    "puntos_corto": 5,
     "niveles": {
       "maximo_sesion": 31369.75,
       "minimo_sesion": 30908.5,
@@ -60,15 +60,18 @@
       "maximo_anterior": 31422.25,
       "minimo_anterior": 31143.0
     },
-    "fvg_alcista": null,
+    "fvg_alcista": [
+      30965.75,
+      30987.0
+    ],
     "fvg_bajista": [
       31037.75,
       31069.25
     ],
     "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "motivo_plan": "RSI en sobreventa; no se persigue el movimiento bajista."
   },
-  "ultimo_analisis_correcto": "2026-10-08T13:21:15.356242-04:00",
-  "ultimo_estado_analizado": "VIGILAR BAJISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 30923.50\nMinimo / maximo: 30908.50 / 31369.75\nBalance 25%-75%: 31023.81 - 31254.44\nEquilibrio: 31139.12\nRango de apertura: 31156.25 - 31275.50\n\nFVG alcista: ninguno activo\nFVG bajista: 31037.75 - 31069.25\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-10-08T13:25:54.037293-04:00",
+  "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 31003.25\nMinimo / maximo: 30908.50 / 31369.75\nBalance 25%-75%: 31023.81 - 31254.44\nEquilibrio: 31139.12\nRango de apertura: 31156.25 - 31275.50\n\nFVG alcista: 30965.75 - 30987.00\nFVG bajista: 31037.75 - 31069.25\n\nSin plan de entrada: RSI en sobreventa; no se persigue el movimiento bajista.\n\nLectura simulada; confirmar siempre en el grafico."
 }
