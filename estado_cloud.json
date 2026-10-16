@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-16T11:30:49.127976-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 29708.25\nEMA20 / EMA50: 29835.51 / 29936.58\nRSI14: 33.59 | ATR14: 58.55\nPuntuacion largo/corto: 0/6\n\nSesion NY: 29681.00 - 30045.75\nBalance 25%-75%: 29772.19 - 29954.56\nEquilibrio: 29863.38\nRango apertura: 29802.25 - 30045.75\nDia anterior: 29622.50 - 30196.75\n\nFVG alcista: ninguno activo\nFVG bajista: 29727.50 - 29793.25\n\nSin entrada simulada: Precio demasiado extendido por debajo de EMA20.\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 16/10/2026 11:20\nHora Nueva York: 16/10/2026 11:30\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-16T11:35:45.532410-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 29694.00\nEMA20 / EMA50: 29819.43 / 29926.00\nRSI14: 34.37 | ATR14: 60.23\nPuntuacion largo/corto: 0/6\n\nSesion NY: 29645.00 - 30045.75\nBalance 25%-75%: 29745.19 - 29945.56\nEquilibrio: 29845.38\nRango apertura: 29802.25 - 30045.75\nDia anterior: 29622.50 - 30196.75\n\nFVG alcista: ninguno activo\nFVG bajista: 29696.00 - 29697.25\n\nSin entrada simulada: Precio demasiado extendido por debajo de EMA20.\n\n🟢 Calidad: DATOS RECIENTES (10.8 min)\n\nUltima vela NY: 16/10/2026 11:25\nHora Nueva York: 16/10/2026 11:35\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-16T11:30:50.593453-04:00",
-    "ultima_vela": "2026-10-16T11:20:00-04:00",
+    "fecha_analisis": "2026-10-16T11:35:46.720949-04:00",
+    "ultima_vela": "2026-10-16T11:25:00-04:00",
     "antiguedad_minutos": 10.8,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -42,19 +42,19 @@
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO BAJISTA - ESPERAR",
-    "precio": 29708.25,
-    "ema20": 29835.513697201306,
-    "ema50": 29936.583583069332,
-    "rsi": 33.59375,
-    "atr": 58.55357142857143,
+    "precio": 29694.0,
+    "ema20": 29819.428283529032,
+    "ema50": 29925.996810077733,
+    "rsi": 34.37349975996159,
+    "atr": 60.232142857142854,
     "puntos_largo": 0,
     "puntos_corto": 6,
     "niveles": {
       "maximo_sesion": 30045.75,
-      "minimo_sesion": 29681.0,
-      "equilibrio": 29863.375,
-      "zona_descuento": 29772.1875,
-      "zona_premium": 29954.5625,
+      "minimo_sesion": 29645.0,
+      "equilibrio": 29845.375,
+      "zona_descuento": 29745.1875,
+      "zona_premium": 29945.5625,
       "maximo_apertura": 30045.75,
       "minimo_apertura": 29802.25,
       "maximo_anterior": 30196.75,
@@ -62,13 +62,13 @@
     },
     "fvg_alcista": null,
     "fvg_bajista": [
-      29727.5,
-      29793.25
+      29696.0,
+      29697.25
     ],
     "plan": null,
     "motivo_plan": "Precio demasiado extendido por debajo de EMA20."
   },
-  "ultimo_analisis_correcto": "2026-10-16T11:30:50.593453-04:00",
+  "ultimo_analisis_correcto": "2026-10-16T11:35:46.720949-04:00",
   "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29708.25\nMinimo / maximo: 29681.00 / 30045.75\nBalance 25%-75%: 29772.19 - 29954.56\nEquilibrio: 29863.38\nRango de apertura: 29802.25 - 30045.75\n\nFVG alcista: ninguno activo\nFVG bajista: 29727.50 - 29793.25\n\nSin plan de entrada: Precio demasiado extendido por debajo de EMA20.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29694.00\nMinimo / maximo: 29645.00 / 30045.75\nBalance 25%-75%: 29745.19 - 29945.56\nEquilibrio: 29845.38\nRango de apertura: 29802.25 - 30045.75\n\nFVG alcista: ninguno activo\nFVG bajista: 29696.00 - 29697.25\n\nSin plan de entrada: Precio demasiado extendido por debajo de EMA20.\n\nLectura simulada; confirmar siempre en el grafico."
 }
