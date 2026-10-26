@@ -26,28 +26,28 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-26T15:30:56.560856-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 29501.75\nEMA20 / EMA50: 29489.06 / 29467.11\nRSI14: 47.68 | ATR14: 20.16\nPuntuacion largo/corto: 6/1\n\nSesion NY: 29165.25 - 29572.00\nBalance 25%-75%: 29266.94 - 29470.31\nEquilibrio: 29368.62\nRango apertura: 29165.25 - 29334.25\nDia anterior: no disponible\n\nFVG alcista: 29478.00 - 29491.25\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 29478.00 - 29491.25\nStop: 29462.88\nObjetivo 1: 29506.37\nObjetivo 2: 29528.12\n\n🟢 Calidad: DATOS RECIENTES (11.0 min)\n\nUltima vela NY: 26/10/2026 15:20\nHora Nueva York: 26/10/2026 15:30\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-26T15:35:51.460659-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR ALCISTA\nPrecio NQ: 29484.75\nEMA20 / EMA50: 29487.54 / 29467.31\nRSI14: 38.09 | ATR14: 21.18\nPuntuacion largo/corto: 3/1\n\nSesion NY: 29165.25 - 29572.00\nBalance 25%-75%: 29266.94 - 29470.31\nEquilibrio: 29368.62\nRango apertura: 29165.25 - 29334.25\nDia anterior: no disponible\n\nFVG alcista: 29478.00 - 29491.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (10.9 min)\n\nUltima vela NY: 26/10/2026 15:25\nHora Nueva York: 26/10/2026 15:35\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-26T15:30:58.211759-04:00",
-    "ultima_vela": "2026-10-26T15:20:00-04:00",
-    "antiguedad_minutos": 11.0,
+    "fecha_analisis": "2026-10-26T15:35:52.858205-04:00",
+    "ultima_vela": "2026-10-26T15:25:00-04:00",
+    "antiguedad_minutos": 10.9,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.0,
+      "antiguedad_minutos": 10.9,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE LARGO",
-    "precio": 29501.75,
-    "ema20": 29489.06090233402,
-    "ema50": 29467.11106652392,
-    "rsi": 47.679324894514764,
-    "atr": 20.160714285714285,
-    "puntos_largo": 6,
+    "estado": "VIGILAR ALCISTA",
+    "precio": 29484.75,
+    "ema20": 29487.53777124843,
+    "ema50": 29467.309287216915,
+    "rsi": 38.08593750000001,
+    "atr": 21.178571428571427,
+    "puntos_largo": 3,
     "puntos_corto": 1,
     "niveles": {
       "maximo_sesion": 29572.0,
@@ -65,17 +65,10 @@
       29491.25
     ],
     "fvg_bajista": null,
-    "plan": {
-      "direccion": "LARGO",
-      "entrada_baja": 29478.0,
-      "entrada_alta": 29491.25,
-      "stop": 29462.879464285714,
-      "objetivo_1": 29506.370535714286,
-      "objetivo_2": 29528.116071428572
-    },
-    "motivo_plan": "Plan validado."
+    "plan": null,
+    "motivo_plan": "Faltan confirmaciones tecnicas."
   },
-  "ultimo_analisis_correcto": "2026-10-26T15:30:58.211759-04:00",
-  "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29501.75\nMinimo / maximo: 29165.25 / 29572.00\nBalance 25%-75%: 29266.94 - 29470.31\nEquilibrio: 29368.62\nRango de apertura: 29165.25 - 29334.25\n\nFVG alcista: 29478.00 - 29491.25\nFVG bajista: ninguno activo\n\nPlan LARGO: 29478.00 - 29491.25\nStop: 29462.88\nObjetivos: 29506.37 / 29528.12\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-10-26T15:35:52.858205-04:00",
+  "ultimo_estado_analizado": "VIGILAR ALCISTA",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29484.75\nMinimo / maximo: 29165.25 / 29572.00\nBalance 25%-75%: 29266.94 - 29470.31\nEquilibrio: 29368.62\nRango de apertura: 29165.25 - 29334.25\n\nFVG alcista: 29478.00 - 29491.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
 }
