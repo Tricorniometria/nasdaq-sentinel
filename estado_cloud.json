@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-10-27T11:45:52.466856-04:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 29745.50\nEMA20 / EMA50: 29688.21 / 29619.54\nRSI14: 78.51 | ATR14: 33.04\nPuntuacion largo/corto: 5/1\n\nSesion NY: 29494.50 - 29775.50\nBalance 25%-75%: 29564.75 - 29705.25\nEquilibrio: 29635.00\nRango apertura: 29523.75 - 29687.75\nDia anterior: 29165.25 - 29572.00\n\nFVG alcista: 29737.50 - 29739.00\nFVG bajista: 29749.25 - 29758.75\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (10.9 min)\n\nUltima vela NY: 27/10/2026 11:35\nHora Nueva York: 27/10/2026 11:45\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-10-27T11:50:54.579506-04:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 29772.50\nEMA20 / EMA50: 29698.28 / 29626.43\nRSI14: 77.26 | ATR14: 31.25\nPuntuacion largo/corto: 5/0\n\nSesion NY: 29494.50 - 29780.00\nBalance 25%-75%: 29565.88 - 29708.62\nEquilibrio: 29637.25\nRango apertura: 29523.75 - 29687.75\nDia anterior: 29165.25 - 29572.00\n\nFVG alcista: 29737.50 - 29739.00\nFVG bajista: ninguno activo\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (10.9 min)\n\nUltima vela NY: 27/10/2026 11:40\nHora Nueva York: 27/10/2026 11:50\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-10-27T11:45:53.795403-04:00",
-    "ultima_vela": "2026-10-27T11:35:00-04:00",
+    "fecha_analisis": "2026-10-27T11:50:56.184014-04:00",
+    "ultima_vela": "2026-10-27T11:40:00-04:00",
     "antiguedad_minutos": 10.9,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -42,19 +42,19 @@
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO ALCISTA - ESPERAR",
-    "precio": 29745.5,
-    "ema20": 29688.210852928365,
-    "ema50": 29619.535207632132,
-    "rsi": 78.51153039832286,
-    "atr": 33.035714285714285,
+    "precio": 29772.5,
+    "ema20": 29698.284876005484,
+    "ema50": 29626.42867507601,
+    "rsi": 77.26244343891403,
+    "atr": 31.25,
     "puntos_largo": 5,
-    "puntos_corto": 1,
+    "puntos_corto": 0,
     "niveles": {
-      "maximo_sesion": 29775.5,
+      "maximo_sesion": 29780.0,
       "minimo_sesion": 29494.5,
-      "equilibrio": 29635.0,
-      "zona_descuento": 29564.75,
-      "zona_premium": 29705.25,
+      "equilibrio": 29637.25,
+      "zona_descuento": 29565.875,
+      "zona_premium": 29708.625,
       "maximo_apertura": 29687.75,
       "minimo_apertura": 29523.75,
       "maximo_anterior": 29572.0,
@@ -64,14 +64,11 @@
       29737.5,
       29739.0
     ],
-    "fvg_bajista": [
-      29749.25,
-      29758.75
-    ],
+    "fvg_bajista": null,
     "plan": null,
     "motivo_plan": "RSI en sobrecompra; no se persigue el movimiento alcista."
   },
-  "ultimo_analisis_correcto": "2026-10-27T11:45:53.795403-04:00",
+  "ultimo_analisis_correcto": "2026-10-27T11:50:56.184014-04:00",
   "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29745.50\nMinimo / maximo: 29494.50 / 29775.50\nBalance 25%-75%: 29564.75 - 29705.25\nEquilibrio: 29635.00\nRango de apertura: 29523.75 - 29687.75\n\nFVG alcista: 29737.50 - 29739.00\nFVG bajista: 29749.25 - 29758.75\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 29772.50\nMinimo / maximo: 29494.50 / 29780.00\nBalance 25%-75%: 29565.88 - 29708.62\nEquilibrio: 29637.25\nRango de apertura: 29523.75 - 29687.75\n\nFVG alcista: 29737.50 - 29739.00\nFVG bajista: ninguno activo\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
 }
