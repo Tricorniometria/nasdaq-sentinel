@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-02T12:56:09.172074-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 28488.75\nEMA20 / EMA50: 28625.05 / 28682.37\nRSI14: 9.61 | ATR14: 36.27\nPuntuacion largo/corto: 0/5\n\nSesion NY: 28485.00 - 28891.25\nBalance 25%-75%: 28586.56 - 28789.69\nEquilibrio: 28688.12\nRango apertura: 28639.00 - 28749.50\nDia anterior: no disponible\n\nFVG alcista: ninguno activo\nFVG bajista: 28531.25 - 28553.00\n\nSin entrada simulada: RSI en sobreventa; no se persigue el movimiento bajista.\n\n🟢 Calidad: DATOS RECIENTES (11.2 min)\n\nUltima vela NY: 02/11/2026 12:45\nHora Nueva York: 02/11/2026 12:56\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-02T13:01:11.591855-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 28578.75\nEMA20 / EMA50: 28624.58 / 28680.03\nRSI14: 31.79 | ATR14: 40.80\nPuntuacion largo/corto: 0/5\n\nSesion NY: 28485.00 - 28891.25\nBalance 25%-75%: 28586.56 - 28789.69\nEquilibrio: 28688.12\nRango apertura: 28639.00 - 28749.50\nDia anterior: no disponible\n\nFVG alcista: ninguno activo\nFVG bajista: 28598.75 - 28610.50\n\nPLAN SIMULADO CORTO\nEntrada: 28598.75 - 28610.50\nStop: 28641.10\nObjetivo 1: 28568.15\nObjetivo 2: 28531.67\n\n🟢 Calidad: DATOS RECIENTES (11.2 min)\n\nUltima vela NY: 02/11/2026 12:50\nHora Nueva York: 02/11/2026 13:01\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-02T12:56:10.730470-05:00",
-    "ultima_vela": "2026-11-02T12:45:00-05:00",
+    "fecha_analisis": "2026-11-02T13:01:12.620753-05:00",
+    "ultima_vela": "2026-11-02T12:50:00-05:00",
     "antiguedad_minutos": 11.2,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,12 +41,12 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "SESGO BAJISTA - ESPERAR",
-    "precio": 28488.75,
-    "ema20": 28625.045408911225,
-    "ema50": 28682.372512879683,
-    "rsi": 9.608540925266908,
-    "atr": 36.267857142857146,
+    "estado": "POSIBLE CORTO",
+    "precio": 28578.75,
+    "ema20": 28624.578499219,
+    "ema50": 28680.03264501589,
+    "rsi": 31.79190751445087,
+    "atr": 40.80357142857143,
     "puntos_largo": 0,
     "puntos_corto": 5,
     "niveles": {
@@ -62,13 +62,20 @@
     },
     "fvg_alcista": null,
     "fvg_bajista": [
-      28531.25,
-      28553.0
+      28598.75,
+      28610.5
     ],
-    "plan": null,
-    "motivo_plan": "RSI en sobreventa; no se persigue el movimiento bajista."
+    "plan": {
+      "direccion": "CORTO",
+      "entrada_baja": 28598.75,
+      "entrada_alta": 28610.5,
+      "stop": 28641.102678571428,
+      "objetivo_1": 28568.147321428572,
+      "objetivo_2": 28531.669642857145
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-11-02T12:56:10.730470-05:00",
-  "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28488.75\nMinimo / maximo: 28485.00 / 28891.25\nBalance 25%-75%: 28586.56 - 28789.69\nEquilibrio: 28688.12\nRango de apertura: 28639.00 - 28749.50\n\nFVG alcista: ninguno activo\nFVG bajista: 28531.25 - 28553.00\n\nSin plan de entrada: RSI en sobreventa; no se persigue el movimiento bajista.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-02T13:01:12.620753-05:00",
+  "ultimo_estado_analizado": "POSIBLE CORTO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28578.75\nMinimo / maximo: 28485.00 / 28891.25\nBalance 25%-75%: 28586.56 - 28789.69\nEquilibrio: 28688.12\nRango de apertura: 28639.00 - 28749.50\n\nFVG alcista: ninguno activo\nFVG bajista: 28598.75 - 28610.50\n\nPlan CORTO: 28598.75 - 28610.50\nStop: 28641.10\nObjetivos: 28568.15 / 28531.67\n\nLectura simulada; confirmar siempre en el grafico."
 }
