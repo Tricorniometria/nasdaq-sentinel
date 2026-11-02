@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-02T12:11:11.530649-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 28684.75\nEMA20 / EMA50: 28699.23 / 28725.94\nRSI14: 35.19 | ATR14: 38.75\nPuntuacion largo/corto: 0/5\n\nSesion NY: 28634.00 - 28891.25\nBalance 25%-75%: 28698.31 - 28826.94\nEquilibrio: 28762.62\nRango apertura: 28639.00 - 28749.50\nDia anterior: no disponible\n\nFVG alcista: ninguno activo\nFVG bajista: 28716.50 - 28717.00\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.2 min)\n\nUltima vela NY: 02/11/2026 12:00\nHora Nueva York: 02/11/2026 12:11\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-02T12:16:10.003910-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 28662.50\nEMA20 / EMA50: 28693.21 / 28722.35\nRSI14: 33.42 | ATR14: 37.29\nPuntuacion largo/corto: 0/5\n\nSesion NY: 28634.00 - 28891.25\nBalance 25%-75%: 28698.31 - 28826.94\nEquilibrio: 28762.62\nRango apertura: 28639.00 - 28749.50\nDia anterior: no disponible\n\nFVG alcista: ninguno activo\nFVG bajista: 28716.50 - 28717.00\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.2 min)\n\nUltima vela NY: 02/11/2026 12:05\nHora Nueva York: 02/11/2026 12:16\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-02T12:11:13.360441-05:00",
-    "ultima_vela": "2026-11-02T12:00:00-05:00",
+    "fecha_analisis": "2026-11-02T12:16:11.778664-05:00",
+    "ultima_vela": "2026-11-02T12:05:00-05:00",
     "antiguedad_minutos": 11.2,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -42,11 +42,11 @@
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO BAJISTA - ESPERAR",
-    "precio": 28684.75,
-    "ema20": 28699.229934202267,
-    "ema50": 28725.938760412493,
-    "rsi": 35.185185185185176,
-    "atr": 38.75,
+    "precio": 28662.5,
+    "ema20": 28693.211437067355,
+    "ema50": 28722.348889761946,
+    "rsi": 33.42070773263434,
+    "atr": 37.285714285714285,
     "puntos_largo": 0,
     "puntos_corto": 5,
     "niveles": {
@@ -68,7 +68,7 @@
     "plan": null,
     "motivo_plan": "El movimiento bajista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-11-02T12:11:13.360441-05:00",
+  "ultimo_analisis_correcto": "2026-11-02T12:16:11.778664-05:00",
   "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28684.75\nMinimo / maximo: 28634.00 / 28891.25\nBalance 25%-75%: 28698.31 - 28826.94\nEquilibrio: 28762.62\nRango de apertura: 28639.00 - 28749.50\n\nFVG alcista: ninguno activo\nFVG bajista: 28716.50 - 28717.00\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28662.50\nMinimo / maximo: 28634.00 / 28891.25\nBalance 25%-75%: 28698.31 - 28826.94\nEquilibrio: 28762.62\nRango de apertura: 28639.00 - 28749.50\n\nFVG alcista: ninguno activo\nFVG bajista: 28716.50 - 28717.00\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
