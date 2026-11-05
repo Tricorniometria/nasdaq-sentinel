@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-05T12:01:18.662254-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 27189.00\nEMA20 / EMA50: 27262.90 / 27587.49\nRSI14: 52.23 | ATR14: 147.46\nPuntuacion largo/corto: 2/5\n\nSesion NY: 26732.00 - 28228.25\nBalance 25%-75%: 27106.06 - 27854.19\nEquilibrio: 27480.12\nRango apertura: 27457.50 - 28228.25\nDia anterior: 28405.00 - 28969.00\n\nFVG alcista: 27020.75 - 27110.00\nFVG bajista: ninguno activo\n\nPLAN SIMULADO CORTO\nEntrada: 27226.04 - 27299.77\nStop: 27410.37\nObjetivo 1: 27115.44\nObjetivo 2: 26967.98\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 05/11/2026 11:50\nHora Nueva York: 05/11/2026 12:01\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-05T12:06:19.633609-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR BAJISTA\nPrecio NQ: 27122.50\nEMA20 / EMA50: 27246.82 / 27568.08\nRSI14: 55.48 | ATR14: 143.20\nPuntuacion largo/corto: 2/4\n\nSesion NY: 26732.00 - 28228.25\nBalance 25%-75%: 27106.06 - 27854.19\nEquilibrio: 27480.12\nRango apertura: 27457.50 - 28228.25\nDia anterior: 28405.00 - 28969.00\n\nFVG alcista: 27020.75 - 27110.00\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.4 min)\n\nUltima vela NY: 05/11/2026 11:55\nHora Nueva York: 05/11/2026 12:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-05T12:01:20.123157-05:00",
-    "ultima_vela": "2026-11-05T11:50:00-05:00",
-    "antiguedad_minutos": 11.3,
+    "fecha_analisis": "2026-11-05T12:06:21.289218-05:00",
+    "ultima_vela": "2026-11-05T11:55:00-05:00",
+    "antiguedad_minutos": 11.4,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.3,
+      "antiguedad_minutos": 11.4,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE CORTO",
-    "precio": 27189.0,
-    "ema20": 27262.904788133117,
-    "ema50": 27587.494594581498,
-    "rsi": 52.22538916904187,
-    "atr": 147.46428571428572,
+    "estado": "VIGILAR BAJISTA",
+    "precio": 27122.5,
+    "ema20": 27246.821721972625,
+    "ema50": 27568.07736759517,
+    "rsi": 55.48354935194417,
+    "atr": 143.19642857142858,
     "puntos_largo": 2,
-    "puntos_corto": 5,
+    "puntos_corto": 4,
     "niveles": {
       "maximo_sesion": 28228.25,
       "minimo_sesion": 26732.0,
@@ -65,17 +65,10 @@
       27110.0
     ],
     "fvg_bajista": null,
-    "plan": {
-      "direccion": "CORTO",
-      "entrada_baja": 27226.038716704545,
-      "entrada_alta": 27299.77085956169,
-      "stop": 27410.369073847403,
-      "objetivo_1": 27115.44050241883,
-      "objetivo_2": 26967.976216704545
-    },
-    "motivo_plan": "Plan validado."
+    "plan": null,
+    "motivo_plan": "Faltan confirmaciones tecnicas."
   },
-  "ultimo_analisis_correcto": "2026-11-05T12:01:20.123157-05:00",
-  "ultimo_estado_analizado": "POSIBLE CORTO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 27189.00\nMinimo / maximo: 26732.00 / 28228.25\nBalance 25%-75%: 27106.06 - 27854.19\nEquilibrio: 27480.12\nRango de apertura: 27457.50 - 28228.25\n\nFVG alcista: 27020.75 - 27110.00\nFVG bajista: ninguno activo\n\nPlan CORTO: 27226.04 - 27299.77\nStop: 27410.37\nObjetivos: 27115.44 / 26967.98\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-05T12:06:21.289218-05:00",
+  "ultimo_estado_analizado": "VIGILAR BAJISTA",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 27122.50\nMinimo / maximo: 26732.00 / 28228.25\nBalance 25%-75%: 27106.06 - 27854.19\nEquilibrio: 27480.12\nRango de apertura: 27457.50 - 28228.25\n\nFVG alcista: 27020.75 - 27110.00\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
 }
