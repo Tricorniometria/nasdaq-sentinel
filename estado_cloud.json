@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-09T11:06:15.831653-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 27970.75\nEMA20 / EMA50: 27747.61 / 27534.84\nRSI14: 81.02 | ATR14: 59.18\nPuntuacion largo/corto: 5/0\n\nSesion NY: 27316.25 - 27979.75\nBalance 25%-75%: 27482.12 - 27813.88\nEquilibrio: 27648.00\nRango apertura: 27316.25 - 27797.50\nDia anterior: no disponible\n\nFVG alcista: 27893.50 - 27935.50\nFVG bajista: ninguno activo\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 09/11/2026 10:55\nHora Nueva York: 09/11/2026 11:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-09T11:11:15.911835-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 27983.50\nEMA20 / EMA50: 27771.84 / 27553.20\nRSI14: 79.57 | ATR14: 56.84\nPuntuacion largo/corto: 5/0\n\nSesion NY: 27316.25 - 27996.50\nBalance 25%-75%: 27486.31 - 27826.44\nEquilibrio: 27656.38\nRango apertura: 27316.25 - 27797.50\nDia anterior: no disponible\n\nFVG alcista: 27951.25 - 27964.25\nFVG bajista: ninguno activo\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 09/11/2026 11:00\nHora Nueva York: 09/11/2026 11:11\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-09T11:06:17.487207-05:00",
-    "ultima_vela": "2026-11-09T10:55:00-05:00",
+    "fecha_analisis": "2026-11-09T11:11:17.423535-05:00",
+    "ultima_vela": "2026-11-09T11:00:00-05:00",
     "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -42,33 +42,33 @@
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "SESGO ALCISTA - ESPERAR",
-    "precio": 27970.75,
-    "ema20": 27747.609441064036,
-    "ema50": 27534.836300216935,
-    "rsi": 81.01587301587301,
-    "atr": 59.17857142857143,
+    "precio": 27983.5,
+    "ema20": 27771.841648491045,
+    "ema50": 27553.203350342996,
+    "rsi": 79.56656346749226,
+    "atr": 56.839285714285715,
     "puntos_largo": 5,
     "puntos_corto": 0,
     "niveles": {
-      "maximo_sesion": 27979.75,
+      "maximo_sesion": 27996.5,
       "minimo_sesion": 27316.25,
-      "equilibrio": 27648.0,
-      "zona_descuento": 27482.125,
-      "zona_premium": 27813.875,
+      "equilibrio": 27656.375,
+      "zona_descuento": 27486.3125,
+      "zona_premium": 27826.4375,
       "maximo_apertura": 27797.5,
       "minimo_apertura": 27316.25,
       "maximo_anterior": null,
       "minimo_anterior": null
     },
     "fvg_alcista": [
-      27893.5,
-      27935.5
+      27951.25,
+      27964.25
     ],
     "fvg_bajista": null,
     "plan": null,
     "motivo_plan": "RSI en sobrecompra; no se persigue el movimiento alcista."
   },
-  "ultimo_analisis_correcto": "2026-11-09T11:06:17.487207-05:00",
+  "ultimo_analisis_correcto": "2026-11-09T11:11:17.423535-05:00",
   "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 27970.75\nMinimo / maximo: 27316.25 / 27979.75\nBalance 25%-75%: 27482.12 - 27813.88\nEquilibrio: 27648.00\nRango de apertura: 27316.25 - 27797.50\n\nFVG alcista: 27893.50 - 27935.50\nFVG bajista: ninguno activo\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 27983.50\nMinimo / maximo: 27316.25 / 27996.50\nBalance 25%-75%: 27486.31 - 27826.44\nEquilibrio: 27656.38\nRango de apertura: 27316.25 - 27797.50\n\nFVG alcista: 27951.25 - 27964.25\nFVG bajista: ninguno activo\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
 }
