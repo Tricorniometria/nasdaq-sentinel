@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-09T13:21:18.465248-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 27942.50\nEMA20 / EMA50: 27928.09 / 27799.41\nRSI14: 52.32 | ATR14: 27.14\nPuntuacion largo/corto: 5/1\n\nSesion NY: 27316.25 - 28014.75\nBalance 25%-75%: 27490.88 - 27840.12\nEquilibrio: 27665.50\nRango apertura: 27316.25 - 27797.50\nDia anterior: no disponible\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nPLAN SIMULADO LARGO\nEntrada: 27921.31 - 27934.88\nStop: 27900.95\nObjetivo 1: 27955.24\nObjetivo 2: 27982.38\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 09/11/2026 13:10\nHora Nueva York: 09/11/2026 13:21\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-09T13:31:16.767040-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SIN CONFIGURACION\nPrecio NQ: 27911.50\nEMA20 / EMA50: 27924.57 / 27807.80\nRSI14: 31.68 | ATR14: 26.38\nPuntuacion largo/corto: 2/1\n\nSesion NY: 27316.25 - 28014.75\nBalance 25%-75%: 27490.88 - 27840.12\nEquilibrio: 27665.50\nRango apertura: 27316.25 - 27797.50\nDia anterior: no disponible\n\nFVG alcista: ninguno activo\nFVG bajista: 27915.75 - 27925.00\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 09/11/2026 13:20\nHora Nueva York: 09/11/2026 13:31\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-09T13:21:19.850714-05:00",
-    "ultima_vela": "2026-11-09T13:10:00-05:00",
+    "fecha_analisis": "2026-11-09T13:31:18.658580-05:00",
+    "ultima_vela": "2026-11-09T13:20:00-05:00",
     "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,13 +41,13 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE LARGO",
-    "precio": 27942.5,
-    "ema20": 27928.092595945855,
-    "ema50": 27799.408153326083,
-    "rsi": 52.3219814241486,
-    "atr": 27.142857142857142,
-    "puntos_largo": 5,
+    "estado": "SIN CONFIGURACION",
+    "precio": 27911.5,
+    "ema20": 27924.569431515687,
+    "ema50": 27807.799703572582,
+    "rsi": 31.680000000000007,
+    "atr": 26.375,
+    "puntos_largo": 2,
     "puntos_corto": 1,
     "niveles": {
       "maximo_sesion": 28014.75,
@@ -61,18 +61,14 @@
       "minimo_anterior": null
     },
     "fvg_alcista": null,
-    "fvg_bajista": null,
-    "plan": {
-      "direccion": "LARGO",
-      "entrada_baja": 27921.30688166014,
-      "entrada_alta": 27934.87831023157,
-      "stop": 27900.949738803,
-      "objetivo_1": 27955.23545308871,
-      "objetivo_2": 27982.378310231565
-    },
-    "motivo_plan": "Plan validado."
+    "fvg_bajista": [
+      27915.75,
+      27925.0
+    ],
+    "plan": null,
+    "motivo_plan": "Faltan confirmaciones tecnicas."
   },
-  "ultimo_analisis_correcto": "2026-11-09T13:21:19.850714-05:00",
-  "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 27942.50\nMinimo / maximo: 27316.25 / 28014.75\nBalance 25%-75%: 27490.88 - 27840.12\nEquilibrio: 27665.50\nRango de apertura: 27316.25 - 27797.50\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nPlan LARGO: 27921.31 - 27934.88\nStop: 27900.95\nObjetivos: 27955.24 / 27982.38\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-09T13:31:18.658580-05:00",
+  "ultimo_estado_analizado": "SIN CONFIGURACION",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 27911.50\nMinimo / maximo: 27316.25 / 28014.75\nBalance 25%-75%: 27490.88 - 27840.12\nEquilibrio: 27665.50\nRango de apertura: 27316.25 - 27797.50\n\nFVG alcista: ninguno activo\nFVG bajista: 27915.75 - 27925.00\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
 }
