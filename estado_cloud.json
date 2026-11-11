@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-11T11:15:59.937264-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO ALCISTA - ESPERAR\nPrecio NQ: 28500.50\nEMA20 / EMA50: 28409.61 / 28370.30\nRSI14: 73.17 | ATR14: 53.02\nPuntuacion largo/corto: 5/0\n\nSesion NY: 28199.00 - 28554.50\nBalance 25%-75%: 28287.88 - 28465.62\nEquilibrio: 28376.75\nRango apertura: 28199.00 - 28426.00\nDia anterior: 27516.00 - 28090.00\n\nFVG alcista: 28467.00 - 28509.00\nFVG bajista: ninguno activo\n\nSin entrada simulada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\n🟢 Calidad: DATOS RECIENTES (11.0 min)\n\nUltima vela NY: 11/11/2026 11:05\nHora Nueva York: 11/11/2026 11:16\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-11T11:21:02.739611-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 28486.50\nEMA20 / EMA50: 28414.08 / 28373.61\nRSI14: 67.61 | ATR14: 52.64\nPuntuacion largo/corto: 6/1\n\nSesion NY: 28199.00 - 28554.50\nBalance 25%-75%: 28287.88 - 28465.62\nEquilibrio: 28376.75\nRango apertura: 28199.00 - 28426.00\nDia anterior: 27516.00 - 28090.00\n\nFVG alcista: 28444.25 - 28464.75\nFVG bajista: 28490.50 - 28510.00\n\nPLAN SIMULADO LARGO\nEntrada: 28444.25 - 28464.75\nStop: 28404.77\nObjetivo 1: 28504.23\nObjetivo 2: 28553.96\n\n🟢 Calidad: DATOS RECIENTES (11.1 min)\n\nUltima vela NY: 11/11/2026 11:10\nHora Nueva York: 11/11/2026 11:21\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-11T11:16:01.364162-05:00",
-    "ultima_vela": "2026-11-11T11:05:00-05:00",
-    "antiguedad_minutos": 11.0,
+    "fecha_analisis": "2026-11-11T11:21:04.495919-05:00",
+    "ultima_vela": "2026-11-11T11:10:00-05:00",
+    "antiguedad_minutos": 11.1,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.0,
+      "antiguedad_minutos": 11.1,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "SESGO ALCISTA - ESPERAR",
-    "precio": 28500.5,
-    "ema20": 28409.607774496963,
-    "ema50": 28370.299045957716,
-    "rsi": 73.17073170731707,
-    "atr": 53.017857142857146,
-    "puntos_largo": 5,
-    "puntos_corto": 0,
+    "estado": "POSIBLE LARGO",
+    "precio": 28486.5,
+    "ema20": 28414.08281529665,
+    "ema50": 28373.609043786113,
+    "rsi": 67.60710553814002,
+    "atr": 52.642857142857146,
+    "puntos_largo": 6,
+    "puntos_corto": 1,
     "niveles": {
       "maximo_sesion": 28554.5,
       "minimo_sesion": 28199.0,
@@ -61,14 +61,24 @@
       "minimo_anterior": 27516.0
     },
     "fvg_alcista": [
-      28467.0,
-      28509.0
+      28444.25,
+      28464.75
     ],
-    "fvg_bajista": null,
-    "plan": null,
-    "motivo_plan": "RSI en sobrecompra; no se persigue el movimiento alcista."
+    "fvg_bajista": [
+      28490.5,
+      28510.0
+    ],
+    "plan": {
+      "direccion": "LARGO",
+      "entrada_baja": 28444.25,
+      "entrada_alta": 28464.75,
+      "stop": 28404.76785714286,
+      "objetivo_1": 28504.23214285714,
+      "objetivo_2": 28553.964285714283
+    },
+    "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-11-11T11:16:01.364162-05:00",
-  "ultimo_estado_analizado": "SESGO ALCISTA - ESPERAR",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28500.50\nMinimo / maximo: 28199.00 / 28554.50\nBalance 25%-75%: 28287.88 - 28465.62\nEquilibrio: 28376.75\nRango de apertura: 28199.00 - 28426.00\n\nFVG alcista: 28467.00 - 28509.00\nFVG bajista: ninguno activo\n\nSin plan de entrada: RSI en sobrecompra; no se persigue el movimiento alcista.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-11T11:21:04.495919-05:00",
+  "ultimo_estado_analizado": "POSIBLE LARGO",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28486.50\nMinimo / maximo: 28199.00 / 28554.50\nBalance 25%-75%: 28287.88 - 28465.62\nEquilibrio: 28376.75\nRango de apertura: 28199.00 - 28426.00\n\nFVG alcista: 28444.25 - 28464.75\nFVG bajista: 28490.50 - 28510.00\n\nPlan LARGO: 28444.25 - 28464.75\nStop: 28404.77\nObjetivos: 28504.23 / 28553.96\n\nLectura simulada; confirmar siempre en el grafico."
 }
