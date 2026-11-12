@@ -26,28 +26,28 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-12T13:10:57.643252-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE LARGO\nPrecio NQ: 28510.00\nEMA20 / EMA50: 28501.74 / 28422.98\nRSI14: 47.59 | ATR14: 42.73\nPuntuacion largo/corto: 5/2\n\nSesion NY: 28044.50 - 28652.25\nBalance 25%-75%: 28196.44 - 28500.31\nEquilibrio: 28348.38\nRango apertura: 28044.50 - 28398.50\nDia anterior: 28199.00 - 28697.00\n\nFVG alcista: ninguno activo\nFVG bajista: 28518.25 - 28540.50\n\nPLAN SIMULADO LARGO\nEntrada: 28491.06 - 28512.43\nStop: 28459.01\nObjetivo 1: 28544.48\nObjetivo 2: 28587.21\n\n🟢 Calidad: DATOS RECIENTES (11.0 min)\n\nUltima vela NY: 12/11/2026 13:00\nHora Nueva York: 12/11/2026 13:10\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-12T13:16:06.075361-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SIN CONFIGURACION\nPrecio NQ: 28492.00\nEMA20 / EMA50: 28499.87 / 28425.29\nRSI14: 43.53 | ATR14: 45.00\nPuntuacion largo/corto: 2/2\n\nSesion NY: 28044.50 - 28652.25\nBalance 25%-75%: 28196.44 - 28500.31\nEquilibrio: 28348.38\nRango apertura: 28044.50 - 28398.50\nDia anterior: 28199.00 - 28697.00\n\nFVG alcista: ninguno activo\nFVG bajista: 28521.75 - 28540.50\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (11.1 min)\n\nUltima vela NY: 12/11/2026 13:05\nHora Nueva York: 12/11/2026 13:16\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-12T13:10:59.278269-05:00",
-    "ultima_vela": "2026-11-12T13:00:00-05:00",
-    "antiguedad_minutos": 11.0,
+    "fecha_analisis": "2026-11-12T13:16:07.436271-05:00",
+    "ultima_vela": "2026-11-12T13:05:00-05:00",
+    "antiguedad_minutos": 11.1,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.0,
+      "antiguedad_minutos": 11.1,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE LARGO",
-    "precio": 28510.0,
-    "ema20": 28501.743450973932,
-    "ema50": 28422.982143226283,
-    "rsi": 47.589285714285715,
-    "atr": 42.732142857142854,
-    "puntos_largo": 5,
+    "estado": "SIN CONFIGURACION",
+    "precio": 28492.0,
+    "ema20": 28499.870692192544,
+    "ema50": 28425.29321846136,
+    "rsi": 43.53041988003428,
+    "atr": 45.0,
+    "puntos_largo": 2,
     "puntos_corto": 2,
     "niveles": {
       "maximo_sesion": 28652.25,
@@ -62,20 +62,13 @@
     },
     "fvg_alcista": null,
     "fvg_bajista": [
-      28518.25,
+      28521.75,
       28540.5
     ],
-    "plan": {
-      "direccion": "LARGO",
-      "entrada_baja": 28491.060415259646,
-      "entrada_alta": 28512.42648668822,
-      "stop": 28459.011308116787,
-      "objetivo_1": 28544.475593831077,
-      "objetivo_2": 28587.207736688222
-    },
-    "motivo_plan": "Plan validado."
+    "plan": null,
+    "motivo_plan": "Faltan confirmaciones tecnicas."
   },
-  "ultimo_analisis_correcto": "2026-11-12T13:10:59.278269-05:00",
-  "ultimo_estado_analizado": "POSIBLE LARGO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28510.00\nMinimo / maximo: 28044.50 / 28652.25\nBalance 25%-75%: 28196.44 - 28500.31\nEquilibrio: 28348.38\nRango de apertura: 28044.50 - 28398.50\n\nFVG alcista: ninguno activo\nFVG bajista: 28518.25 - 28540.50\n\nPlan LARGO: 28491.06 - 28512.43\nStop: 28459.01\nObjetivos: 28544.48 / 28587.21\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-12T13:16:07.436271-05:00",
+  "ultimo_estado_analizado": "SIN CONFIGURACION",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 28492.00\nMinimo / maximo: 28044.50 / 28652.25\nBalance 25%-75%: 28196.44 - 28500.31\nEquilibrio: 28348.38\nRango de apertura: 28044.50 - 28398.50\n\nFVG alcista: ninguno activo\nFVG bajista: 28521.75 - 28540.50\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
 }
