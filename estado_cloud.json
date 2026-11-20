@@ -26,27 +26,27 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-20T13:01:14.695845-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 25589.50\nEMA20 / EMA50: 25668.97 / 25849.87\nRSI14: 44.78 | ATR14: 94.11\nPuntuacion largo/corto: 0/5\n\nSesion NY: 25511.75 - 26504.25\nBalance 25%-75%: 25759.88 - 26256.12\nEquilibrio: 26008.00\nRango apertura: 26116.75 - 26451.25\nDia anterior: 26559.25 - 27838.00\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nPLAN SIMULADO CORTO\nEntrada: 25645.44 - 25692.49\nStop: 25763.07\nObjetivo 1: 25574.86\nObjetivo 2: 25480.75\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 20/11/2026 12:50\nHora Nueva York: 20/11/2026 13:01\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-20T13:06:23.642464-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 25544.00\nEMA20 / EMA50: 25653.34 / 25836.25\nRSI14: 42.02 | ATR14: 94.73\nPuntuacion largo/corto: 0/5\n\nSesion NY: 25511.75 - 26504.25\nBalance 25%-75%: 25759.88 - 26256.12\nEquilibrio: 26008.00\nRango apertura: 26116.75 - 26451.25\nDia anterior: 26559.25 - 27838.00\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin entrada simulada: El movimiento bajista ya ha superado el primer objetivo.\n\n🟢 Calidad: DATOS RECIENTES (11.4 min)\n\nUltima vela NY: 20/11/2026 12:55\nHora Nueva York: 20/11/2026 13:06\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-20T13:01:16.228510-05:00",
-    "ultima_vela": "2026-11-20T12:50:00-05:00",
-    "antiguedad_minutos": 11.3,
+    "fecha_analisis": "2026-11-20T13:06:24.932249-05:00",
+    "ultima_vela": "2026-11-20T12:55:00-05:00",
+    "antiguedad_minutos": 11.4,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.3,
+      "antiguedad_minutos": 11.4,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "POSIBLE CORTO",
-    "precio": 25589.5,
-    "ema20": 25668.966351127732,
-    "ema50": 25849.871335164888,
-    "rsi": 44.780635400907705,
-    "atr": 94.10714285714286,
+    "estado": "SESGO BAJISTA - ESPERAR",
+    "precio": 25544.0,
+    "ema20": 25653.343865122817,
+    "ema50": 25836.25242939947,
+    "rsi": 42.020850040096235,
+    "atr": 94.73214285714286,
     "puntos_largo": 0,
     "puntos_corto": 5,
     "niveles": {
@@ -62,17 +62,10 @@
     },
     "fvg_alcista": null,
     "fvg_bajista": null,
-    "plan": {
-      "direccion": "CORTO",
-      "entrada_baja": 25645.439565413446,
-      "entrada_alta": 25692.49313684202,
-      "stop": 25763.073493984877,
-      "objetivo_1": 25574.859208270587,
-      "objetivo_2": 25480.752065413442
-    },
-    "motivo_plan": "Plan validado."
+    "plan": null,
+    "motivo_plan": "El movimiento bajista ya ha superado el primer objetivo."
   },
-  "ultimo_analisis_correcto": "2026-11-20T13:01:16.228510-05:00",
-  "ultimo_estado_analizado": "POSIBLE CORTO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 25589.50\nMinimo / maximo: 25511.75 / 26504.25\nBalance 25%-75%: 25759.88 - 26256.12\nEquilibrio: 26008.00\nRango de apertura: 26116.75 - 26451.25\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nPlan CORTO: 25645.44 - 25692.49\nStop: 25763.07\nObjetivos: 25574.86 / 25480.75\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-20T13:06:24.932249-05:00",
+  "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 25544.00\nMinimo / maximo: 25511.75 / 26504.25\nBalance 25%-75%: 25759.88 - 26256.12\nEquilibrio: 26008.00\nRango de apertura: 26116.75 - 26451.25\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin plan de entrada: El movimiento bajista ya ha superado el primer objetivo.\n\nLectura simulada; confirmar siempre en el grafico."
 }
