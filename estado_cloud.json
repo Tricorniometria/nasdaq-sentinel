@@ -26,29 +26,29 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-20T15:26:20.569803-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 25282.25\nEMA20 / EMA50: 25397.38 / 25563.45\nRSI14: 29.34 | ATR14: 87.86\nPuntuacion largo/corto: 0/5\n\nSesion NY: 25223.50 - 26504.25\nBalance 25%-75%: 25543.69 - 26184.06\nEquilibrio: 25863.88\nRango apertura: 26116.75 - 26451.25\nDia anterior: 26559.25 - 27838.00\n\nFVG alcista: ninguno activo\nFVG bajista: 25306.00 - 25336.00\n\nPLAN SIMULADO CORTO\nEntrada: 25306.00 - 25336.00\nStop: 25401.89\nObjetivo 1: 25240.11\nObjetivo 2: 25159.21\n\n🟢 Calidad: DATOS RECIENTES (11.4 min)\n\nUltima vela NY: 20/11/2026 15:15\nHora Nueva York: 20/11/2026 15:26\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-20T15:31:18.073936-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: POSIBLE CORTO\nPrecio NQ: 25290.00\nEMA20 / EMA50: 25387.52 / 25552.88\nRSI14: 35.41 | ATR14: 87.91\nPuntuacion largo/corto: 0/6\n\nSesion NY: 25223.50 - 26504.25\nBalance 25%-75%: 25543.69 - 26184.06\nEquilibrio: 25863.88\nRango apertura: 26116.75 - 26451.25\nDia anterior: 26559.25 - 27838.00\n\nFVG alcista: ninguno activo\nFVG bajista: 25306.00 - 25336.00\n\nPLAN SIMULADO CORTO\nEntrada: 25306.00 - 25336.00\nStop: 25401.93\nObjetivo 1: 25240.07\nObjetivo 2: 25159.13\n\n🟢 Calidad: DATOS RECIENTES (11.3 min)\n\nUltima vela NY: 20/11/2026 15:20\nHora Nueva York: 20/11/2026 15:31\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-20T15:26:21.934135-05:00",
-    "ultima_vela": "2026-11-20T15:15:00-05:00",
-    "antiguedad_minutos": 11.4,
+    "fecha_analisis": "2026-11-20T15:31:19.706363-05:00",
+    "ultima_vela": "2026-11-20T15:20:00-05:00",
+    "antiguedad_minutos": 11.3,
     "calidad_datos": {
       "codigo": "VERDE",
       "semaforo": "🟢",
       "etiqueta": "DATOS RECIENTES",
-      "antiguedad_minutos": 11.4,
+      "antiguedad_minutos": 11.3,
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
     "estado": "POSIBLE CORTO",
-    "precio": 25282.25,
-    "ema20": 25397.37742399425,
-    "ema50": 25563.446810002715,
-    "rsi": 29.339853300733495,
-    "atr": 87.85714285714286,
+    "precio": 25290.0,
+    "ema20": 25387.517215813394,
+    "ema50": 25552.883536407837,
+    "rsi": 35.4078264969354,
+    "atr": 87.91071428571429,
     "puntos_largo": 0,
-    "puntos_corto": 5,
+    "puntos_corto": 6,
     "niveles": {
       "maximo_sesion": 26504.25,
       "minimo_sesion": 25223.5,
@@ -69,13 +69,13 @@
       "direccion": "CORTO",
       "entrada_baja": 25306.0,
       "entrada_alta": 25336.0,
-      "stop": 25401.89285714286,
-      "objetivo_1": 25240.10714285714,
-      "objetivo_2": 25159.214285714283
+      "stop": 25401.933035714286,
+      "objetivo_1": 25240.066964285714,
+      "objetivo_2": 25159.133928571428
     },
     "motivo_plan": "Plan validado."
   },
-  "ultimo_analisis_correcto": "2026-11-20T15:26:21.934135-05:00",
+  "ultimo_analisis_correcto": "2026-11-20T15:31:19.706363-05:00",
   "ultimo_estado_analizado": "POSIBLE CORTO",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 25282.25\nMinimo / maximo: 25223.50 / 26504.25\nBalance 25%-75%: 25543.69 - 26184.06\nEquilibrio: 25863.88\nRango de apertura: 26116.75 - 26451.25\n\nFVG alcista: ninguno activo\nFVG bajista: 25306.00 - 25336.00\n\nPlan CORTO: 25306.00 - 25336.00\nStop: 25401.89\nObjetivos: 25240.11 / 25159.21\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 25290.00\nMinimo / maximo: 25223.50 / 26504.25\nBalance 25%-75%: 25543.69 - 26184.06\nEquilibrio: 25863.88\nRango de apertura: 26116.75 - 26451.25\n\nFVG alcista: ninguno activo\nFVG bajista: 25306.00 - 25336.00\n\nPlan CORTO: 25306.00 - 25336.00\nStop: 25401.93\nObjetivos: 25240.07 / 25159.13\n\nLectura simulada; confirmar siempre en el grafico."
 }
