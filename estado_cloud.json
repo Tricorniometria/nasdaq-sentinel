@@ -26,12 +26,12 @@
   "ultimo_update_telegram": 0,
   "menu_telegram_configurado": false,
   "version_menu_telegram": 0,
-  "ultima_ejecucion": "2026-11-24T11:10:28.023855-05:00",
-  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: VIGILAR BAJISTA\nPrecio NQ: 26099.75\nEMA20 / EMA50: 26221.12 / 26295.37\nRSI14: 31.88 | ATR14: 128.02\nPuntuacion largo/corto: 0/4\n\nSesion NY: 26038.75 - 26509.75\nBalance 25%-75%: 26156.50 - 26392.00\nEquilibrio: 26274.25\nRango apertura: 26192.00 - 26501.75\nDia anterior: 26450.25 - 27137.00\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin entrada simulada: Faltan confirmaciones tecnicas.\n\n🟢 Calidad: DATOS RECIENTES (10.5 min)\n\nUltima vela NY: 24/11/2026 11:00\nHora Nueva York: 24/11/2026 11:10\n⚠️ Simulacion educativa. No ejecuta ordenes.",
+  "ultima_ejecucion": "2026-11-24T11:15:28.986247-05:00",
+  "ultimo_analisis_mensaje": "🧭 NASDAQ SENTINEL V4\n\nEstado: SESGO BAJISTA - ESPERAR\nPrecio NQ: 26027.25\nEMA20 / EMA50: 26197.91 / 26282.78\nRSI14: 25.11 | ATR14: 125.21\nPuntuacion largo/corto: 0/5\n\nSesion NY: 26020.00 - 26509.75\nBalance 25%-75%: 26142.44 - 26387.31\nEquilibrio: 26264.88\nRango apertura: 26192.00 - 26501.75\nDia anterior: 26450.25 - 27137.00\n\nFVG alcista: ninguno activo\nFVG bajista: 26051.75 - 26108.75\n\nSin entrada simulada: RSI en sobreventa; no se persigue el movimiento bajista.\n\n🟢 Calidad: DATOS RECIENTES (10.5 min)\n\nUltima vela NY: 24/11/2026 11:05\nHora Nueva York: 24/11/2026 11:15\n⚠️ Simulacion educativa. No ejecuta ordenes.",
   "ultimo_error_analisis": null,
   "ultimo_snapshot_mercado": {
-    "fecha_analisis": "2026-11-24T11:10:29.468714-05:00",
-    "ultima_vela": "2026-11-24T11:00:00-05:00",
+    "fecha_analisis": "2026-11-24T11:15:30.391706-05:00",
+    "ultima_vela": "2026-11-24T11:05:00-05:00",
     "antiguedad_minutos": 10.5,
     "calidad_datos": {
       "codigo": "VERDE",
@@ -41,31 +41,34 @@
       "operativa_permitida": true,
       "detalle": "Lectura apta para analisis simulado."
     },
-    "estado": "VIGILAR BAJISTA",
-    "precio": 26099.75,
-    "ema20": 26221.117005661697,
-    "ema50": 26295.36529288656,
-    "rsi": 31.879194630872476,
-    "atr": 128.01785714285714,
+    "estado": "SESGO BAJISTA - ESPERAR",
+    "precio": 26027.25,
+    "ema20": 26197.91425228802,
+    "ema50": 26282.77868778297,
+    "rsi": 25.1113089937667,
+    "atr": 125.21428571428571,
     "puntos_largo": 0,
-    "puntos_corto": 4,
+    "puntos_corto": 5,
     "niveles": {
       "maximo_sesion": 26509.75,
-      "minimo_sesion": 26038.75,
-      "equilibrio": 26274.25,
-      "zona_descuento": 26156.5,
-      "zona_premium": 26392.0,
+      "minimo_sesion": 26020.0,
+      "equilibrio": 26264.875,
+      "zona_descuento": 26142.4375,
+      "zona_premium": 26387.3125,
       "maximo_apertura": 26501.75,
       "minimo_apertura": 26192.0,
       "maximo_anterior": 27137.0,
       "minimo_anterior": 26450.25
     },
     "fvg_alcista": null,
-    "fvg_bajista": null,
+    "fvg_bajista": [
+      26051.75,
+      26108.75
+    ],
     "plan": null,
-    "motivo_plan": "Faltan confirmaciones tecnicas."
+    "motivo_plan": "RSI en sobreventa; no se persigue el movimiento bajista."
   },
-  "ultimo_analisis_correcto": "2026-11-24T11:10:29.468714-05:00",
-  "ultimo_estado_analizado": "VIGILAR BAJISTA",
-  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 26099.75\nMinimo / maximo: 26038.75 / 26509.75\nBalance 25%-75%: 26156.50 - 26392.00\nEquilibrio: 26274.25\nRango de apertura: 26192.00 - 26501.75\n\nFVG alcista: ninguno activo\nFVG bajista: ninguno activo\n\nSin plan de entrada: Faltan confirmaciones tecnicas.\n\nLectura simulada; confirmar siempre en el grafico."
+  "ultimo_analisis_correcto": "2026-11-24T11:15:30.391706-05:00",
+  "ultimo_estado_analizado": "SESGO BAJISTA - ESPERAR",
+  "ultimo_niveles_mensaje": "📐 NIVELES NASDAQ — SESION NY\n\nPrecio: 26027.25\nMinimo / maximo: 26020.00 / 26509.75\nBalance 25%-75%: 26142.44 - 26387.31\nEquilibrio: 26264.88\nRango de apertura: 26192.00 - 26501.75\n\nFVG alcista: ninguno activo\nFVG bajista: 26051.75 - 26108.75\n\nSin plan de entrada: RSI en sobreventa; no se persigue el movimiento bajista.\n\nLectura simulada; confirmar siempre en el grafico."
 }
